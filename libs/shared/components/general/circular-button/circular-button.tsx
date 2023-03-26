@@ -1,3 +1,4 @@
+import { CircularButtonProps } from '@recipefit/components'
 import {
   Image,
   ImageBackground,
@@ -6,7 +7,6 @@ import {
   TouchableOpacity,
   View
 } from 'react-native'
-import { CircularButtonProps } from '../../types'
 
 const CircularButton: React.FC<CircularButtonProps> = ({ 
   title, 

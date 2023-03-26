@@ -1,3 +1,16 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@recipefit/assets": ["./libs/shared/assets/index.ts"],
+      "@recipefit/components": ["./libs/shared/components/index.ts"],
+      "@recipefit/domain-types": ["./libs/shared/domain-types/index.ts"],
+      "@recipefit/services": ["./libs/shared/services/index.ts"],
+      "@recipefit/styles": ["./libs/shared/styles/index.ts"],
+      "@recipefit/modules/outros": ["./libs/modules/outros/index.ts"],
+      "@recipefit/modules/authentication": ["./libs/modules/authentication/index.ts"],
+      "@recipefit/modules/exercicio": ["./libs/modules/exercicio/index.ts"],
+      "@recipefit/modules/alimentacao": ["./libs/modules/alimentacao/index.ts"],
+    }
+  }
 }

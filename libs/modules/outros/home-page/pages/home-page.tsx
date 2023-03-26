@@ -13,14 +13,14 @@ import {
   Header,
   HeaderProps,
   IconButton
-} from '../../../../shared/components';
+} from '@recipefit/components';
 import {
   AlimentosImage,
   Diet,
   ExerciciosImage,
   Halteres,
   Vegetable
-} from '../../../../shared/assets';
+} from '@recipefit/assets';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const width = Dimensions.get('window').width;

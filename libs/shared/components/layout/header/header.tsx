@@ -1,11 +1,11 @@
-import { ReactNode } from 'react';
+import { HeaderProps } from '@recipefit/components';
 import {
   Dimensions,
   StyleSheet,
   Text,
   View
 } from 'react-native'
-import { HeaderProps } from '../../types';
+
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;

@@ -1,8 +1,8 @@
+import { IconButtonProps } from '@recipefit/components'
 import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native'
-import { IconButtonProps } from '../../types'
 
 const IconButton: React.FC<IconButtonProps> = ({ 
   icon, ...rest 
