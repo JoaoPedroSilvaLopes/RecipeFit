@@ -1,31 +1,14 @@
-import { IconButtonProps } from '@recipefit/components'
-import {
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native'
+import {IconButtonProps} from '@recipefit/components';
+import {TouchableOpacity} from 'react-native';
 
-const IconButton: React.FC<IconButtonProps> = ({ 
-  icon, ...rest 
-}) => {
+import * as S from './icon-button.styles';
+
+const IconButton: React.FC<IconButtonProps> = ({icon, ...rest}) => {
   return (
-    <TouchableOpacity
-      style={styles.iconButton}
-      {...rest}
-    >
+    <TouchableOpacity style={S.styles.iconButton} {...rest}>
       {icon}
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-const styles = StyleSheet.create({
-  iconButton: {
-    width: 35,
-    height: 35,
-    borderRadius: 30,
-    backgroundColor: '#005D8C',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-})
-
-export default IconButton
+export default IconButton;

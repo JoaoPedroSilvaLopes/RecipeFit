@@ -1,1 +1,1 @@
-export * from './menu-images'
+export * from './menu-images';
