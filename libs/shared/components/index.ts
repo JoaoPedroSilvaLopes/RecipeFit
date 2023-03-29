@@ -1,3 +1,4 @@
-export * from './general'
-export * from './layout'
-export * from './types'
+export * from './general';
+export * from './layout';
+export * from './types';
+export * from './feedback';
