@@ -1,11 +1,8 @@
-import {Dimensions, StyleSheet} from 'react-native';
-const width = Dimensions.get('window').width;
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingHorizontal: 40,
-    height: 100,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
@@ -17,7 +14,7 @@ export const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
     fontFamily: 'Gothic A1',
-    transform: [{translateX: width * -0.25}],
+    position: 'absolute',
   },
   actionGroup: {
     marginRight: 'auto',

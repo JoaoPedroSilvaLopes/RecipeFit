@@ -11,10 +11,16 @@ export const styles = StyleSheet.create({
     shadowColor: '#000000',
     elevation: 8,
   },
+  disabled: {
+    opacity: 0.65,
+  },
   text: {
     color: '#ffffff',
     fontSize: 15,
     fontWeight: 'bold',
     fontFamily: 'Gothic A1',
+  },
+  activeIndicator: {
+    color: '#ffffff',
   },
 });

@@ -1,5 +1,6 @@
 import React from 'react';
-import {View} from 'react-native';
+import auth from '@react-native-firebase/auth';
+import {SafeAreaView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {
@@ -7,6 +8,7 @@ import {
   IconButton,
   Header,
   HeaderProps,
+  TextButton,
 } from '../../../../shared/components/';
 import {
   AlimentosImage,
@@ -21,8 +23,11 @@ import * as S from './home-page.styles';
 
 const HomePage: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
-  const handleNavigation = () => {
-    navigation.navigate('Login');
+
+  const signOut = () => {
+    auth()
+      .signOut()
+      .then(() => navigation.navigate('Login'));
   };
 
   const headerConfigs: HeaderProps = {
@@ -32,22 +37,21 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <View style={S.styles.screen}>
+    <SafeAreaView style={S.styles.screen}>
       <Header {...headerConfigs} />
       <CircularButton
         title="Alimentação"
         rightImageUrl={Diet}
         leftImageUrl={Vegetable}
         backgroundImageUrl={AlimentosImage}
-        onPress={() => handleNavigation()}
       />
       <CircularButton
         title="Exercícios"
         rightImageUrl={Halteres}
         backgroundImageUrl={ExerciciosImage}
-        onPress={() => handleNavigation()}
       />
-    </View>
+      <TextButton title="Sair" onPress={() => signOut()} />
+    </SafeAreaView>
   );
 };
 
