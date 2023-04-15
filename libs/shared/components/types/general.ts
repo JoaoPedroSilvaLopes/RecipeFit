@@ -7,11 +7,17 @@ import {
   TextStyle,
 } from 'react-native/types';
 
-export type TextFieldInputProps = {} & TextInputProps;
+export type TextFieldInputProps = {
+  label: string;
+  isRequired?: boolean;
+  error?: string;
+  mask?: string;
+} & TextInputProps;
 
 export type ButtonProps = {
   styles?: StyleProp<TextStyle>[];
   title?: string;
+  isLoading?: boolean;
 } & TouchableOpacityProps;
 
 export type IconButtonProps = {
