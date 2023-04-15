@@ -1,86 +1,67 @@
+import {View} from 'react-native';
 import auth from '@react-native-firebase/auth';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {CadastroForm} from '../components';
+import {FormProvider, SubmitHandler, useForm} from 'react-hook-form';
 import {
   Header,
   HeaderProps,
-  TextButton,
-  TextFieldInput,
+  MessageList,
 } from '../../../../../libs/shared/components';
-import {View} from 'react-native';
-import {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {
+  CadastroFormInput,
+  cadastroUsuarioValidationSchema,
+} from '../../../../shared/domain-types';
+import {AuthError, AuthErrorHandler, useErrors} from '../../../../shared/core';
 
 import * as S from './cadastro-page.styles';
 
 const CadastroPage: React.FC = () => {
+  const form = useForm<CadastroFormInput>({
+    resolver: yupResolver(cadastroUsuarioValidationSchema),
+    mode: 'onChange',
+  });
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
-
-  const [email, setEmail] = useState<string>('');
-  const [senha, setSenha] = useState<string>('');
-
-  const signUp = () => {
-    auth()
-      .createUserWithEmailAndPassword(email, senha)
-      .then(() => navigation.navigate('Login'))
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          console.log('Já existe uma conta com o endereço de email fornecido.');
-        }
-        if (error.code === 'auth/invalid-email') {
-          console.log('E-mail inválido');
-        }
-      });
-  };
+  const {errors, addError, clearErrors} = useErrors();
 
   const headerConfig: HeaderProps = {
     title: 'Cadastro',
   };
 
+  const onSubmit: SubmitHandler<CadastroFormInput> = data => {
+    auth()
+      .createUserWithEmailAndPassword(data.email, data.senha)
+      .then(onSuccess)
+      .catch(onError);
+  };
+
+  const onSuccess = () => {
+    form.reset();
+    clearErrors();
+    navigation.navigate('Login');
+  };
+
+  const onError = (error: AuthError) => {
+    const errorMessage = AuthErrorHandler.handleError(error);
+    errorMessage && addError(errorMessage);
+  };
+
   return (
     <View style={S.styles.screen}>
       <Header {...headerConfig} />
-      <View style={S.styles.textFieldGroup}>
-        <TextFieldInput
-          placeholder="Nome"
-          // value={email}
-          // onChangeText={setEmail}
-        />
-        <TextFieldInput
-          placeholder="E-mail"
-          value={email}
-          onChangeText={setEmail}
-        />
-        <TextFieldInput
-          placeholder="Data de Nascimento"
-          // value={senha}
-          // onChangeText={setSenha}
-        />
-        <TextFieldInput
-          placeholder="Peso"
-          // value={senha}
-          // onChangeText={setSenha}
-        />
-        <TextFieldInput
-          placeholder="Senha"
-          secureTextEntry={true}
-          value={senha}
-          onChangeText={setSenha}
-        />
-        <TextFieldInput
-          placeholder="Confirmar senha"
-          secureTextEntry={true}
-          value={senha}
-          onChangeText={setSenha}
-        />
-      </View>
-      <View style={S.styles.footerContainer}>
-        <View style={S.styles.footerButtonGroup}>
-          <TextButton
-            title="Retornar"
-            onPress={() => navigation.navigate('Login')}
-          />
-          <TextButton title="Concluir" onPress={signUp} />
-        </View>
+      <View style={S.styles.container}>
+        <FormProvider {...form}>
+          {errors.length > 0 && (
+            <MessageList
+              variant="danger"
+              message={errors}
+              onClose={clearErrors}
+            />
+          )}
+          <CadastroForm onSubmit={onSubmit} />
+        </FormProvider>
       </View>
     </View>
   );
