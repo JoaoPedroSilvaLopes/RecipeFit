@@ -1,0 +1,42 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@nx-workspace//modules/alimentacao": [
+        "libs/modules/alimentacao/src/index.ts"
+      ],
+      "@nx-workspace//modules/authentication": [
+        "libs/modules/authentication/src/index.ts"
+      ],
+      "@nx-workspace//modules/exercicio": [
+        "libs/modules/exercicio/src/index.ts"
+      ],
+      "@nx-workspace//modules/outros": ["libs/modules/outros/src/index.ts"],
+      "@nx-workspace//shared/assets": ["libs/shared/assets/src/index.ts"],
+      "@nx-workspace//shared/components": [
+        "libs/shared/components/src/index.ts"
+      ],
+      "@nx-workspace//shared/core": ["libs/shared/core/src/index.ts"],
+      "@nx-workspace//shared/domain-types": [
+        "libs/shared/domain-types/src/index.ts"
+      ],
+      "@nx-workspace//shared/services": ["libs/shared/services/src/index.ts"],
+      "@nx-workspace//shared/styles": ["libs/shared/styles/src/index.ts"]
+    }
+  },
+  "includes": ["styled-components.d.ts"],
+  "exclude": ["node_modules", "tmp"]
+}
