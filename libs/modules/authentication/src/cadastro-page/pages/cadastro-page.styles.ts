@@ -10,14 +10,6 @@ export const Screen = styled.View`
   gap: 50px;
 `;
 
-export const Title = styled.Text`
-  font-size: 45px;
-  font-weight: bold;
-  color: ${(props) => props.theme.colorPalette.primary};
-  width: 100%;
-  padding: 0px 50px;
-`;
-
 export const Container = styled.View`
   width: 100%;
   gap: 10px;

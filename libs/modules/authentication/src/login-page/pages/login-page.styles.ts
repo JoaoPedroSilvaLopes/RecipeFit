@@ -14,7 +14,10 @@ export const Screen = styled.View`
 export const Title = styled.Text`
   font-size: 45px;
   font-weight: bold;
-  color: ${(props) => props.theme.colorPalette.primary};
+  color: ${(props) =>
+    props.theme.title === 'dark'
+      ? props.theme.colorPalette.primary
+      : props.theme.colors.background};
   width: 100%;
 `;
 
@@ -40,7 +43,10 @@ export const FooterButtonGroup = styled.View`
 
 export const FooterText = styled.Text`
   font-size: 15px;
-  color: ${(props) => props.theme.colorPalette.primary};
+  color: ${(props) =>
+    props.theme.title === 'dark'
+      ? props.theme.colorPalette.primary
+      : props.theme.colors.textColor};
 `;
 
 export const FooterTextButton = styled(TextButton)`

@@ -10,7 +10,10 @@ export const Container = styled.View`
 `
 
 export const Title = styled.Text`
-  color: ${props => props.theme.colorPalette.primary};
+  color: ${(props) =>
+    props.theme.title === 'dark'
+      ? props.theme.colorPalette.primary
+      : props.theme.colors.background};
   font-size: 30px;
   font-weight: bold;
   position: absolute;

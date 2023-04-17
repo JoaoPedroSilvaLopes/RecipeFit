@@ -18,6 +18,7 @@ import {
   Header,
   HeaderProps,
   MessageList,
+  Particles,
 } from '@nx-workspace//shared/components';
 
 import * as S from './cadastro-page.styles';
@@ -54,6 +55,7 @@ const CadastroPage: React.FC = () => {
 
   return (
     <S.Screen>
+      <Particles />
       <Header {...headerConfig} />
       <S.Container>
         <FormProvider {...form}>

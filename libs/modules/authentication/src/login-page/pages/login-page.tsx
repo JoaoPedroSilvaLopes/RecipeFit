@@ -13,7 +13,7 @@ import {
   AuthErrorHandler,
   useErrors,
 } from '@nx-workspace//shared/core';
-import { MessageList, TextButton } from '@nx-workspace//shared/components';
+import { MessageList, Particles, TextButton } from '@nx-workspace//shared/components';
 import LoginForm from '../components/login-form/login-form';
 
 import * as S from './login-page.styles';
@@ -62,6 +62,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <S.Screen>
+      <Particles />
       <S.Title>Login</S.Title>
       <S.Container>
         <FormProvider {...form}>
