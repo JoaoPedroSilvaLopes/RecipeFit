@@ -51,4 +51,8 @@ export const FooterText = styled.Text`
 
 export const FooterTextButton = styled(TextButton)`
   font-weight: bold;
+  color: ${(props) =>
+    props.theme.title === 'dark'
+      ? props.theme.colorPalette.primary
+      : props.theme.colorPalette.secondary};
 `;

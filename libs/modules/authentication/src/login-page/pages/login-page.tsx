@@ -55,7 +55,7 @@ const LoginPage: React.FC = () => {
   };
 
   const navToRecuperarSenha = () => {
-    navigation.navigate('Cadastro');
+    navigation.navigate('RecuperarSenha');
     clearErrors();
     form.reset();
   };
