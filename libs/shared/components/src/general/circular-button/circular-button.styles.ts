@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { StyleSheet } from 'react-native';
 
 export const Container = styled.View`
   justify-content: center;
@@ -47,6 +46,10 @@ export const RightImage = styled.Image`
   top: 100px;
   right: -50px;
   transform: rotate(350deg);
+
+  border: 1px;
+  background-color: red;
+  background-image: './diet.png';
 `;
 
 export const LeftImage = styled.Image`
@@ -57,21 +60,7 @@ export const LeftImage = styled.Image`
   top: 100px;
   right: 90px;
   transform: rotate(10deg);
+
+  border: 1px;
+  //background-color: red;
 `;
-
-export const styles = StyleSheet.create({
-  circularButton: {
-    width: 200,
-    height: 200,
-    backgroundColor: '#555555',
-    borderWidth: 12,
-    borderRadius: 150,
-    borderColor: '#333333',
-    alignItems: 'flex-end',
-    marginBottom: 10,
-
-    justifyContent: 'center',
-    gap: -80,
-    elevation: 8,
-  },
-});

@@ -1,41 +1,55 @@
-import {StyleSheet} from 'react-native';
+import styled from 'styled-components/native';
+import Icon from 'react-native-vector-icons/Foundation';
+import { IconButton } from '../../general';
 
-export const styles = StyleSheet.create({
-  messagePanel: {
-    padding: 15,
-    width: '100%',
-    borderRadius: 10,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    shadowColor: '#000',
-    elevation: 5,
-  },
-  listContainer: {
-    width: '100%',
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  listText: {
-    width: '85%',
-    textAlign: 'justify',
-    fontFamily: 'Gothic A1',
-    fontSize: 12,
-  },
-  positiveVariant: {
-    backgroundColor: '#B9E4CA',
-    color: '#0C622E',
-  },
-  dangerVariant: {
-    backgroundColor: '#f5c9d1',
-    color: '#842e3c',
-  },
-  onCloseButton: {
-    width: 25,
-    height: 25,
-    marginRight: 5,
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+export const MessageContainer = styled.View<{ variant: string }>`
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  background-color: ${(props) =>
+    props.variant === 'positive'
+      ? props.theme.colors.sucessMessageBackground
+      : props.theme.colors.dangerMessageBackground};
+`;
+
+export const ListContainer = styled.View`
+  width: 100%;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const ListText = styled.Text<{ variant: string }>`
+  width: 85%;
+  text-align: justify;
+  font-size: 12px;
+
+  color: ${(props) =>
+    props.variant === 'positive'
+      ? props.theme.colors.sucessMessage
+      : props.theme.colors.dangerMessage};
+`
+
+export const OnCloseButton = styled(IconButton)<{ variant: string }>`
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: ${(props) =>
+    props.variant === 'positive'
+      ? props.theme.colors.sucessMessageBackground
+      : props.theme.colors.dangerMessageBackground};
+`
+
+export const IconWrapper = styled(Icon)<{ variant: string }>`
+  color: ${(props) =>
+    props.variant === 'positive'
+      ? props.theme.colors.sucessMessage
+      : props.theme.colors.dangerMessage};
+`

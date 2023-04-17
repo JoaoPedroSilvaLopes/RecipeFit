@@ -41,3 +41,11 @@ export const cadastroUsuarioValidationSchema = yup.object({
     .string()
     .oneOf([yup.ref('senha')], 'As senhas devem coincidir'),
 });
+
+export const recuperarSenhaValidationSchema = yup.object({
+  email: yup
+    .string()
+    .required('O campo é obrigatório')
+    .email('Insira um email válido')
+    .max(80, 'O campo atingiu o limite máximo de 80 caracteres'),
+});

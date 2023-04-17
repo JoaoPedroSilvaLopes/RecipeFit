@@ -4,16 +4,25 @@ export const Container = styled.View`
   width: 100%;
 `;
 
-export const Label = styled.Text<{ isRequired?: boolean }>`
-  font-size: 12px;
-  color: ${(props) => props.theme.colors.textColor};
+export const LabelGroup = styled.View`
+  display: flex;
+  flex-direction: row;
   margin-bottom: 5px;
+  gap: 5px;
+`;
+
+export const Label = styled.Text`
+  font-size: 13px;
+  color: ${(props) => props.theme.colors.textColor};
+`;
+
+export const IsRequired = styled.Text`
+  font-size: 13px;
+  color: ${(props) => props.theme.colors.danger};
 `;
 
 export const BaseInput = styled.TextInput.attrs((props) => ({
   placeholderTextColor: props.theme.colors.textColor,
-  evelation: 10,
-  shadowColor: '#000',
 }))<{ active: boolean; error?: string }>`
   width: 100%;
   height: 50px;

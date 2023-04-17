@@ -7,6 +7,7 @@ import {
   Header,
   HeaderProps,
   IconButton,
+  Particles,
   TextButton,
 } from '@nx-workspace//shared/components';
 import {
@@ -37,6 +38,7 @@ const HomePage: React.FC = () => {
 
   return (
     <S.Screen>
+      <Particles />
       <Header {...headerConfigs} />
       <CircularButton
         title="Alimentação"

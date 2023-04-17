@@ -10,3 +10,7 @@ export type CadastroFormInput = {
   senha: string;
   confirmarSenha: string;
 };
+
+export type RecuperarSenhaFormInput = {
+  email: string;
+};

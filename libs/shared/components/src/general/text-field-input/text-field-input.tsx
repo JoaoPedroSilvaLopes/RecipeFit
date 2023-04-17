@@ -12,13 +12,15 @@ const TextFieldInput: React.FC<TextFieldInputProps> = ({
 
   return (
     <S.Container>
-      <S.Label isRequired={isRequired}>{label}</S.Label>
+      <S.LabelGroup>
+        <S.Label>{label}</S.Label>
+        {isRequired && <S.IsRequired>*</S.IsRequired>}
+      </S.LabelGroup>
       <S.BaseInput
         active={active}
         error={error}
         onFocus={() => setActive(true)}
         onBlur={() => setActive(false)}
-        {...rest}
       />
       {error && <S.LabelError>{error}</S.LabelError>}
     </S.Container>

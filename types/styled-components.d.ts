@@ -13,11 +13,12 @@ declare module 'styled-components' {
       backgroundContent: string;
       suportColor: string;
       textColor: string;
-
-      sucessBackground: string;
-      sucess: string;
-      dangerBackground: string;
       danger: string;
+
+      sucessMessageBackground: string;
+      sucessMessage: string;
+      dangerMessageBackground: string;
+      dangerMessage: string;
     };
     colorPalette: {
       primary: string;

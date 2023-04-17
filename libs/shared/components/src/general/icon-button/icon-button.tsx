@@ -4,7 +4,7 @@ import * as S from './icon-button.styles';
 
 const IconButton: React.FC<IconButtonProps> = ({icon, ...rest}) => {
   return (
-    <S.IconButton {...rest}>
+    <S.IconButton>
       {icon}
     </S.IconButton>
   );

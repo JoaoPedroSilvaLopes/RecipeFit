@@ -11,11 +11,11 @@ const CircularButton: React.FC<CircularButtonProps> = ({
 }) => {
   return (
     <S.Container>
-      <S.CircularButton {...rest}>
+      <S.CircularButton>
         {backgroundImageUrl && (
           <S.ImageBackground source={backgroundImageUrl} />
         )}
-        {rightImageUrl && <S.RightImage source={rightImageUrl} />}
+        {rightImageUrl && <S.RightImage source={rightImageUrl}/>}
         {leftImageUrl && <S.LeftImage source={leftImageUrl} />}
       </S.CircularButton>
       <S.Label>{title}</S.Label>

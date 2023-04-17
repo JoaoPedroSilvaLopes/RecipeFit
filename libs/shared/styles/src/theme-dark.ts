@@ -9,11 +9,12 @@ export const themeDark: DefaultTheme = Object.assign({}, variables, {
     backgroundContent: '#555555',
     suportColor: '#333333',
     textColor: '#ffffff',
+    danger: '#FF6C6C',
 
-    sucessBackground: '#B9E4CA',
-    sucess: '#0C622E',
-    dangerBackground: '#f5c9d1',
-    danger: '#842e3c',
+    sucessMessageBackground: '#B9E4CA',
+    sucessMessage: '#0C622E',
+    dangerMessageBackground: '#f5c9d1',
+    dangerMessage: '#842e3c',
   },
   colorPalette: greenPalette,
 });

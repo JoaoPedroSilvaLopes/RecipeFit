@@ -1,7 +1,4 @@
-import {Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/Foundation';
-import {MessageListProps} from '../../types';
-import {IconButton} from '../../general';
+import { MessageListProps } from '../../types';
 
 import * as S from './message-list.styles';
 
@@ -11,43 +8,24 @@ const MessageList: React.FC<MessageListProps> = ({
   message,
 }) => {
   return message.length > 0 ? (
-    <View
-      style={[
-        S.styles.messagePanel,
-        variant === 'positive'
-          ? S.styles.positiveVariant
-          : S.styles.dangerVariant,
-      ]}>
+    <S.MessageContainer variant={variant}>
       {message.map((message, index) => {
         return (
-          <View style={S.styles.listContainer}>
-            <Text
-              style={[
-                S.styles.listText,
-                variant === 'positive'
-                  ? S.styles.positiveVariant
-                  : S.styles.dangerVariant,
-              ]}
-              key={index}>
+          <S.ListContainer>
+            <S.ListText variant={variant} key={index}>
               {`\u2022 ${message}`}
-            </Text>
+            </S.ListText>
             {index === 0 && (
-              <IconButton
-                style={S.styles.onCloseButton}
-                icon={
-                  <Icon
-                    name="x"
-                    size={10}
-                    color={variant === 'positive' ? '#0C622E' : '#842e3c'}
-                  />
-                }
+              <S.OnCloseButton
+                icon={<S.IconWrapper variant={variant} name="x" size={10} />}
+                variant={variant}
                 onPress={onClose}
               />
             )}
-          </View>
+          </S.ListContainer>
         );
       })}
-    </View>
+    </S.MessageContainer>
   ) : null;
 };
 
