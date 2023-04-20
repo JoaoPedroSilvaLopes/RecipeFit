@@ -1,12 +1,15 @@
-import { IconButtonProps } from '../..';
+import { IconButtonProps } from '../../types';
 
 import * as S from './icon-button.styles';
 
-const IconButton: React.FC<IconButtonProps> = ({icon, ...rest}) => {
+const IconButton: React.FC<IconButtonProps> = ({ icon, ...rest }) => {
   return (
-    <S.IconButton>
-      {icon}
-    </S.IconButton>
+    <S.IconButtonWrapper
+      icon={icon}
+      shadow={3}
+      _pressed={{ opacity: 0.75 }}
+      {...rest}
+    />
   );
 };
 

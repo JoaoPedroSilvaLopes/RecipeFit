@@ -3,8 +3,10 @@ import { useState } from 'react';
 import * as S from './text-field-input.styles';
 
 const TextFieldInput: React.FC<TextFieldInputProps> = ({
-  label,
+  placeholder,
   isRequired,
+  isReadOnly,
+  label,
   error,
   ...rest
 }) => {
@@ -17,10 +19,16 @@ const TextFieldInput: React.FC<TextFieldInputProps> = ({
         {isRequired && <S.IsRequired>*</S.IsRequired>}
       </S.LabelGroup>
       <S.BaseInput
+        placeholder={placeholder}
+        isReadOnly={isReadOnly}
+        isRequired={isRequired}
         active={active}
         error={error}
-        onFocus={() => setActive(true)}
-        onBlur={() => setActive(false)}
+        onFocus={() => setActive(!active)}
+        onBlur={() => setActive(!active)}
+        variant={'unstyled'}
+        shadow={3}
+        {...rest}
       />
       {error && <S.LabelError>{error}</S.LabelError>}
     </S.Container>

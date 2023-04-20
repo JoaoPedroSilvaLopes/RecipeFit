@@ -1,3 +1,4 @@
+import { Input } from 'native-base';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -21,18 +22,11 @@ export const IsRequired = styled.Text`
   color: ${(props) => props.theme.colors.danger};
 `;
 
-export const BaseInput = styled.TextInput.attrs((props) => ({
-  placeholderTextColor: props.theme.colors.textColor,
-}))<{ active: boolean; error?: string }>`
-  width: 100%;
+export const BaseInput = styled(Input)<{ active: boolean; error?: string }>`
   height: 50px;
-  border-radius: 10px;
-  border-width: 1px;
+  border-radius: 5px;
+  border-width: 1.5px;
   background-color: ${(props) => props.theme.colors.background};
-  justify-content: center;
-  align-items: center;
-  padding: 0px 15px;
-
   font-size: 15px;
   color: ${(props) => props.theme.colors.textColor};
 

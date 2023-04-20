@@ -1,14 +1,12 @@
 import styled from 'styled-components/native';
+import Button from '../button/button';
 
 export const Container = styled.View`
   justify-content: center;
   align-items: center;
 `;
 
-export const CircularButton = styled.TouchableOpacity.attrs({
-  evelation: 8,
-  shadowColor: '#000',
-})`
+export const CircularButton = styled(Button)`
   width: 200px;
   height: 200px;
   border-width: 12px;
@@ -46,10 +44,6 @@ export const RightImage = styled.Image`
   top: 100px;
   right: -50px;
   transform: rotate(350deg);
-
-  border: 1px;
-  background-color: red;
-  background-image: './diet.png';
 `;
 
 export const LeftImage = styled.Image`
@@ -60,7 +54,4 @@ export const LeftImage = styled.Image`
   top: 100px;
   right: 90px;
   transform: rotate(10deg);
-
-  border: 1px;
-  //background-color: red;
 `;

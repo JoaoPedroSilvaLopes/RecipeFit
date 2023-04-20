@@ -1,12 +1,10 @@
+import { HStack } from 'native-base'
 import styled from 'styled-components/native'
 
-export const Container = styled.View`
+export const Container = styled(HStack)`
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
-  flex-direction: row;
-  text-align: center;
 `
 
 export const Title = styled.Text`
@@ -16,11 +14,11 @@ export const Title = styled.Text`
       : props.theme.colors.background};
   font-size: 30px;
   font-weight: bold;
+  text-align: center;
   position: absolute;
 `
 
-export const ActionGroup = styled.View`
-  margin-right: auto;
-  gap: 8px;
-  flex-direction: row;
+export const ActionGroup = styled(HStack)`
+  gap: 5px;
+  right: 40%;
 `

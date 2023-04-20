@@ -1,9 +1,24 @@
 import styled from 'styled-components/native';
+import { Text, Button } from 'native-base';
 
-export const Label = styled.Text`
+export const Label = styled(Text)`
   font-size: 15px;
   color: ${(props) =>
     props.theme.title === 'dark'
       ? props.theme.colorPalette.primary
       : props.theme.colors.textColor};
 `;
+
+export const TextButton = styled(Button)`
+  width: auto;
+  height: auto;
+  font-size: 15px;
+  font-weight: normal;
+  border: none;
+
+  color: ${(props) =>
+    props.theme.title === 'dark'
+      ? props.theme.colorPalette.primary
+      : props.theme.colors.textColor};
+`;
+

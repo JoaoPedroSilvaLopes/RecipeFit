@@ -1,5 +1,4 @@
 import { HeaderProps } from '../..';
-
 import * as S from './header.styles';
 
 const Header: React.FC<HeaderProps> = ({ title, actions }) => {

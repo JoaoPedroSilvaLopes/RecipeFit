@@ -1,13 +1,12 @@
-import { ButtonProps } from '../..';
-import { TouchableOpacity } from 'react-native';
+import { TextButtonProps } from '../..';
 
 import * as S from './text-button.styles';
 
-const TextButton: React.FC<ButtonProps> = ({ title, styles, ...rest }) => {
+const TextButton: React.FC<TextButtonProps> = ({ title, ...rest }) => {
   return (
-    <TouchableOpacity {...rest}>
+    <S.TextButton variant={'outline'} _pressed={{ opacity: 0.75 }} {...rest} >
       <S.Label>{title}</S.Label>
-    </TouchableOpacity>
+    </S.TextButton>
   );
 };
 
