@@ -1,6 +1,9 @@
 import { DefaultTheme } from 'styled-components';
-import { bluePalette, greenPalette, orangePalette } from './palette';
-import variables from './common';
+import { greenPalette } from '../palette';
+import variables from '../common/common';
+
+// import { usePalette } from '@nx-workspace//shared/core';
+// const { colorPalette } = usePalette()
 
 export const themeDark: DefaultTheme = Object.assign({}, variables, {
   title: 'dark',

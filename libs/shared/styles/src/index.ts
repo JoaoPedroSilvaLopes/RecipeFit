@@ -1,2 +1,3 @@
-export * from './theme-light';
-export * from './theme-dark';
+export * from './common';
+export * from './palette';
+export * from './theme';

@@ -1,5 +1,4 @@
 import 'styled-components';
-
 declare module 'styled-components' {
   export interface ColorPalette {
     primary: string;
@@ -20,10 +19,7 @@ declare module 'styled-components' {
       dangerMessageBackground: string;
       dangerMessage: string;
     };
-    colorPalette: {
-      primary: string;
-      secondary: string;
-    };
+    colorPalette: colorPalette;
     fontDefault: {
       family: string;
     };
