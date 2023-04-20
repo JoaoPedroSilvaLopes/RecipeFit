@@ -3,7 +3,6 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { CadastroFormInput } from '@nx-workspace//shared/domain-types';
 import {
-  NumberFieldInput,
   TextButton,
   TextFieldInput,
   formProps,
@@ -54,17 +53,35 @@ const CadastroForm: React.FC<Props> = ({ onSubmit }) => {
           )}
         />
         <Controller
-          name="dataNascimento"
+          name="peso"
           control={control}
           render={({ field: { value, onChange }, ...rest }) => (
-            <NumberFieldInput
-              label="Data de Nascimento"
-              mask="##/##/####"
-              placeholder="Insira sua Data de Nascimento"
-              error={formState.errors.dataNascimento?.message}
+            <TextFieldInput
+              label="Peso (kg)"
+              placeholder="Insira seu Peso"
+              error={formState.errors.peso?.message}
               isRequired
               value={value}
               onChangeText={onChange}
+              autoCapitalize="none"
+              maxLength={3}
+              {...rest}
+            />
+          )}
+        />
+        <Controller
+          name="altura"
+          control={control}
+          render={({ field: { value, onChange }, ...rest }) => (
+            <TextFieldInput
+              label="Altura (cm)"
+              placeholder="Insira sua Altura"
+              error={formState.errors.altura?.message}
+              isRequired
+              value={value}
+              onChangeText={onChange}
+              autoCapitalize="none"
+              maxLength={3}
               {...rest}
             />
           )}

@@ -36,7 +36,10 @@ export const FooterContainer = styled.View`
 `;
 
 export const FooterButtonGroup = styled.View`
+  width: 100%;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   flex-direction: row;
   gap: 10px;
 `;

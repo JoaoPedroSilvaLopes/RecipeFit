@@ -1,5 +1,5 @@
 import auth from '@react-native-firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigation } from '@react-navigation/native';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
@@ -13,10 +13,33 @@ import {
   AuthErrorHandler,
   useErrors,
 } from '@nx-workspace//shared/core';
-import { MessageList, Particles, TextButton } from '@nx-workspace//shared/components';
+import {
+  MessageList,
+  Particles,
+  TextButton,
+} from '@nx-workspace//shared/components';
 import LoginForm from '../components/login-form/login-form';
 
 import * as S from './login-page.styles';
+// import { database } from '@nx-workspace//shared/services';
+
+// const [user, setUser] = useState<any[]>([])
+
+// useEffect(() => {
+//   console.log(database)
+
+//   async function getCredits() {
+//     await database.collection('users_portfolio').onSnapshot((query) => {
+//       const list: any[] = []
+//       query.forEach((doc) => {
+//         list.push({...doc.data(), id: doc.id})
+//       })
+//       setUser(list)
+//     })
+//   } getCredits()
+// }, [])
+
+// console.log(user)
 
 const LoginPage: React.FC = () => {
   const form = useForm<LoginFormInput>({
