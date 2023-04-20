@@ -25,6 +25,8 @@
     "@react-native-firebase/auth": "*",
     "@react-native-firebase/app": "*",
     "@hookform/resolvers": "*",
-    "styled-components": "*"
+    "styled-components": "*",
+    "react-native-linear-gradient": "*",
+    "native-base": "*"
   }
 }
