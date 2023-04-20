@@ -1,19 +1,17 @@
 import React, { useState, createContext, ReactNode } from 'react';
-import {
-  DefaultTheme,
-  ThemeProvider as StyledThemeProvider,
-} from 'styled-components/native';
-import { themeDark, themeLight } from '@nx-workspace//shared/styles';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components/native';
+import { getTheme } from '../utils';
 
 type AvailableModes = 'light' | 'dark';
 
 type ThemeContextProps = {
-  defaultTheme: 'light' | 'dark';
+  defaultMode: 'light';
   children: ReactNode;
 };
 
 type ThemeContextType = {
   mode: AvailableModes;
+  toggleTheme: () => void;
 };
 
 export const ThemeContext: React.Context<ThemeContextType> = createContext(
@@ -21,28 +19,28 @@ export const ThemeContext: React.Context<ThemeContextType> = createContext(
 );
 
 export const ThemeProvider: React.FC<ThemeContextProps> = ({
-  defaultTheme,
+  defaultMode,
   children,
 }) => {
-  const [mode, setMode] = useState<AvailableModes>(defaultTheme);
+  const [mode, setMode] = useState<AvailableModes>(defaultMode);
 
-  const handleDefaultTheme = (mode: AvailableModes) => {
-    return getTheme(defaultTheme);
+  const toggleTheme = (): void => {
+    handleMode(mode === defaultMode ? 'dark' : defaultMode);
   };
 
-  const getTheme = (mode: AvailableModes): DefaultTheme => {
-    switch (mode) {
-      case 'dark':
-        return themeDark;
-      default:
-        return themeLight;
-    }
+  const handleMode = (mode: AvailableModes) => {
+    setMode(mode);
+  };
+
+  const handleDefaultTheme = (mode: AvailableModes) => {
+    return getTheme(mode);
   };
 
   return (
     <ThemeContext.Provider
       value={{
         mode,
+        toggleTheme,
       }}
     >
       <StyledThemeProvider theme={handleDefaultTheme(mode)}>

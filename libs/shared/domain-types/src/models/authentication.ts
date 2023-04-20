@@ -6,7 +6,8 @@ export type LoginFormInput = {
 export type CadastroFormInput = {
   nome: string;
   email: string;
-  dataNascimento: string;
+  peso?: string;
+  altura?: string;
   senha: string;
   confirmarSenha: string;
 };
