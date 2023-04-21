@@ -9,9 +9,3 @@ export type HeaderProps = {
 export type formProps<T extends FieldValues> = {
   onSubmit: SubmitHandler<T>;
 };
-
-export type MessageListProps = {
-  message: string[];
-  variant: 'positive' | 'danger';
-  onClose?: () => void;
-};

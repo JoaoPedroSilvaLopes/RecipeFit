@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { Spinner as BaseSpinner } from 'native-base';
 import { Text, Button } from 'native-base';
 
 export const Label = styled(Text)`
@@ -22,3 +23,6 @@ export const TextButton = styled(Button)`
       : props.theme.colors.textColor};
 `;
 
+export const Spinner = styled(BaseSpinner)`
+  color: red;
+`;

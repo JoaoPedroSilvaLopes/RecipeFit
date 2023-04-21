@@ -7,11 +7,6 @@ import {
 import { LinearGradientProps } from 'react-native-linear-gradient';
 import { ImageSourcePropType } from 'react-native/types';
 
-export type TextFieldInputProps = {
-  label: string;
-  error?: string;
-} & IInputProps;
-
 export type ButtonProps = {
   title?: string;
   isLoading?: boolean;
