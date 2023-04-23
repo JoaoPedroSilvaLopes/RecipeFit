@@ -29,25 +29,27 @@ const LoginPage: React.FC = () => {
 
   const onSubmit: SubmitHandler<RecuperarSenhaFormInput> = (data) => {
     setIsloading(true);
-    auth().sendPasswordResetEmail(data.email).then(onSuccess).catch(onSuccess);
+    auth()
+      .sendPasswordResetEmail(data.email)
+      .then(onSuccess)
+      .catch(onSuccess)
+      .finally(() => setIsloading(false));
   };
 
   const onSuccess = () => {
-    setIsloading(false);
     form.reset();
     setMessage(
       'E-mail enviado com sucesso, por favor verifique sua caixa de entrada.'
     );
   };
 
-  const navToLogin = () => {
-    navigation.navigate('Login');
-    form.reset();
+  const returnPage = () => {
+    navigation.goBack();
   };
 
   const onClose = () => {
-    setMessage(undefined)
-  }
+    setMessage(undefined);
+  };
 
   return (
     <S.Screen>
@@ -55,11 +57,17 @@ const LoginPage: React.FC = () => {
       <IconRecuperarSenha />
       <S.Container>
         <FormProvider {...form}>
-          {message && <MessageList variant="positive" message={[message]} onClose={onClose}/>}
+          {message && (
+            <MessageList
+              variant="positive"
+              message={[message]}
+              onClose={onClose}
+            />
+          )}
           <RecuperarSenhaForm onSubmit={onSubmit} isLoading={isLoading} />
         </FormProvider>
       </S.Container>
-      <TextButton title="Retornar" onPress={() => navToLogin()} />
+      <TextButton title="Retornar" onPress={() => returnPage()} />
     </S.Screen>
   );
 };

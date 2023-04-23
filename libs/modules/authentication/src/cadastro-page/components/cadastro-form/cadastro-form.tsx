@@ -10,9 +10,11 @@ import {
 
 import * as S from './cadastro-form.styles';
 
-type Props = formProps<CadastroFormInput>;
+type Props = formProps<CadastroFormInput> & {
+  isLoading: boolean;
+};
 
-const CadastroForm: React.FC<Props> = ({ onSubmit }) => {
+const CadastroForm: React.FC<Props> = ({ onSubmit, isLoading }) => {
   const { control, formState, handleSubmit } =
     useFormContext<CadastroFormInput>();
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
@@ -60,7 +62,6 @@ const CadastroForm: React.FC<Props> = ({ onSubmit }) => {
               label="Peso (kg)"
               placeholder="Insira seu Peso"
               error={formState.errors.peso?.message}
-              isRequired
               value={value}
               onChangeText={onChange}
               autoCapitalize="none"
@@ -77,7 +78,6 @@ const CadastroForm: React.FC<Props> = ({ onSubmit }) => {
               label="Altura (cm)"
               placeholder="Insira sua Altura"
               error={formState.errors.altura?.message}
-              isRequired
               value={value}
               onChangeText={onChange}
               autoCapitalize="none"
@@ -124,9 +124,13 @@ const CadastroForm: React.FC<Props> = ({ onSubmit }) => {
       <S.FooterButtonGroup>
         <TextButton
           title="Retornar"
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => navigation.goBack()}
         />
-        <TextButton title="Concluir" onPress={handleSubmit(onSubmit)} />
+        <TextButton
+          title="Concluir"
+          onPress={handleSubmit(onSubmit)}
+          isLoading={isLoading}
+        />
       </S.FooterButtonGroup>
     </>
   );

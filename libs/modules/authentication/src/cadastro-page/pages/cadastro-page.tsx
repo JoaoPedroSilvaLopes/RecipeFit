@@ -1,5 +1,5 @@
-import { View } from 'react-native';
 import auth from '@react-native-firebase/auth';
+import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -28,6 +28,7 @@ const CadastroPage: React.FC = () => {
     resolver: yupResolver(cadastroUsuarioValidationSchema),
     mode: 'onChange',
   });
+  const [isLoading, setIsloading] = useState<boolean>(false);
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const { errors, addError, clearErrors } = useErrors();
 
@@ -36,16 +37,22 @@ const CadastroPage: React.FC = () => {
   };
 
   const onSubmit: SubmitHandler<CadastroFormInput> = (data) => {
+    setIsloading(true);
     auth()
       .createUserWithEmailAndPassword(data.email, data.senha)
       .then(onSuccess)
-      .catch(onError);
+      .catch(onError)
+      .finally(() => setIsloading(false));
+  };
+
+  const returnPage = () => {
+    navigation.goBack();
   };
 
   const onSuccess = () => {
     form.reset();
     clearErrors();
-    navigation.navigate('Login');
+    returnPage();
   };
 
   const onError = (error: AuthError) => {
@@ -66,7 +73,7 @@ const CadastroPage: React.FC = () => {
               onClose={clearErrors}
             />
           )}
-          <CadastroForm onSubmit={onSubmit} />
+          <CadastroForm onSubmit={onSubmit} isLoading={isLoading} />
         </FormProvider>
       </S.Container>
     </S.Screen>
