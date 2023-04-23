@@ -12,6 +12,7 @@ import {
   ExerciciosHomePage,
 } from '@nx-workspace//modules/exercicio';
 import { useCurrentAccount } from '../adapters';
+import { AdministracaoExercicioPage } from '@nx-workspace//modules/administracao';
 
 export const Router: React.FC = () => {
   const Stack = createNativeStackNavigator();
@@ -41,6 +42,11 @@ export const Router: React.FC = () => {
         <Stack.Screen
           name="ExercicioFavoritos"
           component={ExerciciosFavoritosPage}
+        />
+
+        <Stack.Screen
+          name="AdministracaoExercicio"
+          component={AdministracaoExercicioPage}
         />
       </Stack.Navigator>
     </NavigationContainer>
