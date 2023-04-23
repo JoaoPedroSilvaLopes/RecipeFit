@@ -1,4 +1,3 @@
-import React from 'react';
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -20,25 +19,44 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import * as S from './home-page.styles';
+import { Sidebar } from '../components';
 
 const HomePage: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
   const signOut = () => {
-    auth()
-      .signOut()
-      .then(() => navigation.navigate('Login'));
+    auth().signOut();
   };
 
   const headerConfigs: HeaderProps = {
     actions: [
-      <IconButton icon={<Icon name="gear" size={25} color={'#fff'} />} />,
+      <IconButton
+        icon={<Icon name="gear" size={15} color={'#fff'} />}
+        onPress={() => navToPerfil()}
+      />,
     ],
+  };
+
+  const navToPerfil = () => {
+    navigation.navigate('Perfil');
+  };
+
+  const navToTheme = () => {
+    navigation.navigate('Theme');
+  };
+
+  const navToAlimentoHome = () => {
+    navigation.navigate('ExercicioHome');
+  };
+
+  const navToExercicioHome = () => {
+    navigation.navigate('ExercicioHome');
   };
 
   return (
     <S.Screen>
       <Particles />
+      {/* <Sidebar /> */}
       <Header {...headerConfigs} />
       <CircularButton
         title="Alimentação"
@@ -50,8 +68,13 @@ const HomePage: React.FC = () => {
         title="Exercícios"
         rightImageUrl={Halteres}
         backgroundImageUrl={ExerciciosImage}
+        onPress={() => navToExercicioHome()}
       />
-      <TextButton title="Sair" onPress={() => signOut()} />
+      <S.Teste>
+        <TextButton title="Sair" onPress={() => signOut()} />
+        <TextButton title="Perfil" onPress={() => navToPerfil()} />
+        <TextButton title="Theme" onPress={() => navToTheme()} />
+      </S.Teste>
     </S.Screen>
   );
 };

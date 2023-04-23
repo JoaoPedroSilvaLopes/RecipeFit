@@ -5,7 +5,7 @@ const Header: React.FC<HeaderProps> = ({ title, actions }) => {
   return (
     <S.Container>
       <S.ActionGroup>
-        {actions && <>{actions.map((action) => action)}</>}
+        {actions && <>{actions.map((action, index) => action)}</>}
       </S.ActionGroup>
       <S.Title>{title}</S.Title>
     </S.Container>

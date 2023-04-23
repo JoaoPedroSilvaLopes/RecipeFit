@@ -1,43 +1,11 @@
 export type Exercicio = {
-  id: number;
+  id: string;
   foto?: string;
   nome: string;
-  categoriaId: AvailableCategoriasExerciciosIdentificacaoTipo;
+  categoriaId: number;
 };
 
-export const getAvailableCategoriaExercicioTitle = (
-  idExericio: AvailableCategoriasExerciciosIdentificacaoTipo
-): string => {
-  switch (idExericio) {
-    case AvailableCategoriasExerciciosIdentificacaoTipo.Braco:
-      return 'Braço';
-      break;
-    case AvailableCategoriasExerciciosIdentificacaoTipo.Costas:
-      return 'Costas';
-      break;
-    case AvailableCategoriasExerciciosIdentificacaoTipo.Peito:
-      return 'Peito';
-      break;
-    case AvailableCategoriasExerciciosIdentificacaoTipo.Abdomen:
-      return 'Abdômen';
-      break;
-    case AvailableCategoriasExerciciosIdentificacaoTipo.Perna:
-      return 'Perna';
-      break;
-    case AvailableCategoriasExerciciosIdentificacaoTipo.Alongamento:
-      return 'Alongamento';
-      break;
-    default:
-      return '';
-      break;
-  }
+export type ExercicioCategoria = {
+  id: string;
+  nomeCategoria: string;
 };
-
-export enum AvailableCategoriasExerciciosIdentificacaoTipo {
-  Braco = 1,
-  Costas,
-  Peito,
-  Abdomen,
-  Perna,
-  Alongamento,
-}

@@ -1,10 +1,8 @@
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {HomePage} from '../../pages';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { HomePage } from '../../pages';
 
-type sidebarProps = {};
-const Drawer = createDrawerNavigator();
-
-const Sidebar: React.FC<sidebarProps> = () => {
+const Sidebar: React.FC = () => {
+  const Drawer = createDrawerNavigator();
   return (
     <Drawer.Navigator>
       <Drawer.Screen key="home" name="Home" component={HomePage} />

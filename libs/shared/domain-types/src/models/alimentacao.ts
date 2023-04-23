@@ -1,5 +1,5 @@
 export type Receita = {
-  id: number;
+  id: string;
   foto?: string;
   nome: string;
   ingredientes: string[];

@@ -2,10 +2,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc",
+    "declaration": true,
     "types": ["node"]
   },
   "files": [
-    "../../../types/styled-components.d.ts",
+    "../../../node_modules/@nrwl/react/typings/image.d.ts",
     "../../../types/assets.d.ts",
   ],
   "exclude": [

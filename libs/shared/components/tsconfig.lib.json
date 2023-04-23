@@ -5,8 +5,9 @@
     "types": ["node"]
   },
   "files": [
-    "../../../types/styled-components.d.ts",
-    "../../../types/assets.d.ts",
+    "../../../node_modules/@nrwl/react/typings/cssmodule.d.ts",
+    "../../../node_modules/@nrwl/react/typings/image.d.ts",
+    "../../../types/styled-components.d.ts"
   ],
   "exclude": [
     "jest.config.ts",
