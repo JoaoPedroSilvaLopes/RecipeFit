@@ -37,6 +37,5 @@
       "@nx-workspace//shared/styles": ["libs/shared/styles/src/index.ts"]
     }
   },
-  "includes": ["styled-components.d.ts, assets.d.ts"],
   "exclude": ["node_modules", "tmp"]
 }

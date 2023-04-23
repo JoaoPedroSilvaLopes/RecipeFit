@@ -27,6 +27,8 @@
     "@hookform/resolvers": "*",
     "styled-components": "*",
     "react-native-linear-gradient": "*",
-    "native-base": "*"
+    "native-base": "*",
+    "@react-native-firebase/firestore": "*",
+    "react-native-fast-image": "*"
   }
 }
