@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const add = async ({ data }: Props) => {
-  await firestore()
+  return firestore()
     .collection('exercicio')
     .add({
       nome: data.nome,

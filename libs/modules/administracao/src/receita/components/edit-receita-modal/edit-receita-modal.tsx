@@ -1,8 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import {
-  Modal,
-  ModalProps,
-} from '@nx-workspace//shared/components';
+import { Modal, ModalProps } from '@nx-workspace//shared/components';
 import {
   ReceitaFormInput,
   receitaValidationSchema,
@@ -11,37 +8,31 @@ import { useEffect, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useLoadById } from '../../hooks';
 import ReceitaForm from '../receita-form/receita-form';
+import { ReceitasService } from '@nx-workspace//shared/services';
 
 type Props = Pick<ModalProps, 'isOpen' | 'onClose'> & {
   id?: string;
   nome?: string;
 };
 
-const EditReceitaModal: React.FC<Props> = ({ id, nome, isOpen, onClose: onHide }) => {
+const EditReceitaModal: React.FC<Props> = ({
+  id,
+  nome,
+  isOpen,
+  onClose: onHide,
+}) => {
   const form = useForm<ReceitaFormInput>({
     resolver: yupResolver(receitaValidationSchema),
     mode: 'onChange',
   });
   const [isLoading, setIsloading] = useState<boolean>(false);
 
-  const { data: receita } = useLoadById({ id: id })
-
-  useEffect(() => {
-    if (receita) {
-      form.reset({
-        nome: receita.nome,
-        ingredientes: receita.ingredientes,
-        modoDePreparo: receita.modoDePreparo,
-        categoriaId: receita.categoriaId
-      })
-    }
-  }, [receita])
-
-  // const { isLoading, setExercicio, setIsLoading } = useAdd()
-
   const onSubmit: SubmitHandler<ReceitaFormInput> = (data) => {
-    // useAdd({data: data})
-    onClose();
+    setIsloading(true);
+    ReceitasService.update({ id, data })
+      .then(() => setIsloading(false))
+      .catch(() => setIsloading(false))
+      .finally(() => onClose());
   };
 
   const onClose = () => {

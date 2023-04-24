@@ -1,21 +1,22 @@
-import React from 'react'
+import React from 'react';
 import { Exercicio } from '@nx-workspace//shared/domain-types';
 import firestore from '@react-native-firebase/firestore';
 
 type Props = {
   id?: string;
   setData: React.Dispatch<React.SetStateAction<Exercicio | undefined>>;
-  setIsloading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const loadById = async ({ id, setData, setIsloading }: Props) => {
+export const loadById = async ({ id, setData }: Props) => {
   return firestore()
     .collection('exercicio')
     .onSnapshot((querySnapshot) => {
-      const data = querySnapshot.docs.filter((doc) => {
-        return doc.id === id && { id: doc.id, ...doc.data() };
-      }) as unknown as Exercicio[];
-      setData(data[0]);
-      setIsloading(false);
+      const data = querySnapshot.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      }) as Exercicio[];
+      const filterData = data.filter((value) => {
+        return value.id === id && value;
+      });
+      setData(filterData[0]);
     });
 };

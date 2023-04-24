@@ -7,11 +7,11 @@ import {
 import { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import ExercicioForm from '../exercicio-form/exercicio-form';
-import { add } from '../../hooks';
+import { ExerciciosService, FotoService } from '@nx-workspace//shared/services';
 
 type Props = Pick<ModalProps, 'isOpen' | 'onClose'>;
 
-const RemoveExercicioModal: React.FC<Props> = ({ isOpen, onClose: onHide }) => {
+const AddExercicioModal: React.FC<Props> = ({ isOpen, onClose: onHide }) => {
   const form = useForm<ExercicioFormInput>({
     resolver: yupResolver(exercicioValidationSchema),
     mode: 'onChange',
@@ -19,8 +19,12 @@ const RemoveExercicioModal: React.FC<Props> = ({ isOpen, onClose: onHide }) => {
   const [isLoading, setIsloading] = useState<boolean>(false);
 
   const onSubmit: SubmitHandler<ExercicioFormInput> = (data) => {
-    add({ data: data })
-    onClose();
+    setIsloading(true);
+    FotoService.add({ imageUri: data.foto, nome: data.nome });
+    ExerciciosService.add({ data: data })
+      .then(() => setIsloading(false))
+      .catch(() => setIsloading(false))
+      .finally(() => onClose());
   };
 
   const onClose = () => {
@@ -43,4 +47,4 @@ const RemoveExercicioModal: React.FC<Props> = ({ isOpen, onClose: onHide }) => {
   );
 };
 
-export default RemoveExercicioModal;
+export default AddExercicioModal;

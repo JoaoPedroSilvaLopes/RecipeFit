@@ -17,7 +17,6 @@ export const loadById = async ({ id, setData }: Props) => {
       const filterData = data.filter((value) => {
         return value.id === id && value;
       });
-
       setData(filterData[0]);
     });
 };

@@ -2,7 +2,8 @@ import {
   ConfirmModal,
   ConfirmModalProps,
 } from '@nx-workspace//shared/components';
-import { useRemove } from '../../hooks';
+import { ExerciciosService } from '@nx-workspace//shared/services';
+import { useState } from 'react';
 
 type Props = Pick<ConfirmModalProps, 'isOpen' | 'onClose'> & {
   id?: string;
@@ -15,12 +16,14 @@ const RemoveExercicioModal: React.FC<Props> = ({
   id,
   nome,
 }) => {
-  const { isLoading, setId } = useRemove();
-
+  const [isLoading, setIsloading] = useState<boolean>(false);
   const onConfirm = () => {
     if (id) {
-      setId(id);
-      onClose();
+      setIsloading(true);
+      ExerciciosService.remove({ id })
+        .then(() => setIsloading(false))
+        .catch(() => setIsloading(false))
+        .finally(() => onClose());
     }
   };
 

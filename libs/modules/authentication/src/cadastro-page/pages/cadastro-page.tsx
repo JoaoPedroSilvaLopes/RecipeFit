@@ -43,7 +43,9 @@ const CadastroPage: React.FC = () => {
       .createUserWithEmailAndPassword(data.email, data.senha)
       .then(() => onSuccess(data))
       .catch(onError)
-      .finally(() => setIsloading(false));
+      .finally(() => {
+        setIsloading(false)
+      });
   };
 
   const returnPage = () => {
@@ -59,7 +61,6 @@ const CadastroPage: React.FC = () => {
     });
     form.reset();
     clearErrors();
-    returnPage();
   };
 
   const onError = (error: AuthError) => {
