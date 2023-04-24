@@ -22,7 +22,7 @@ declare module 'styled-components' {
     fontDefault: {
       family: string;
     };
-    fontAlimentacao: {
+    fontreceita: {
       family: string;
     };
   }

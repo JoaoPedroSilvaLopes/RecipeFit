@@ -18,8 +18,8 @@
       "@nx-workspace//modules/administracao": [
         "libs/modules/administracao/src/index.ts"
       ],
-      "@nx-workspace//modules/alimentacao": [
-        "libs/modules/alimentacao/src/index.ts"
+      "@nx-workspace//modules/receita": [
+        "libs/modules/receita/src/index.ts"
       ],
       "@nx-workspace//modules/authentication": [
         "libs/modules/authentication/src/index.ts"

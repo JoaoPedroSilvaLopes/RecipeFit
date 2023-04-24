@@ -1,4 +1,4 @@
-import { IInputProps, ISelectProps } from 'native-base';
+import { IInputProps, ISelectProps, ITextAreaProps } from 'native-base';
 
 export type TextFieldInputProps = {
   label: string;
@@ -12,6 +12,15 @@ export type SelectProps = {
   error?: string;
   data?: DataProps[];
 } & ISelectProps;
+
+export type TextAreaProps = {
+  isRequired?: boolean;
+  isReadOnly?: boolean;
+  label: string;
+  error?: string;
+  data?: DataProps[];
+} & ITextAreaProps;
+
 
 export type DataProps = {
   value: string

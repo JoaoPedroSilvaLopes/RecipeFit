@@ -10,8 +10,8 @@ const PreviewContainer: React.FC = () => {
             Página Inicial
           </S.TitleContent>
         </S.PreviewContent>
-        <S.PreviewContent variant={'alimentacao'} shadow={3}>
-          <S.TitleContent variant={'alimentacao'}>Alimentação</S.TitleContent>
+        <S.PreviewContent variant={'receita'} shadow={3}>
+          <S.TitleContent variant={'receita'}>Alimentação</S.TitleContent>
         </S.PreviewContent>
         <S.PreviewContent variant={'exercicio'} shadow={3}>
           <S.TitleContent variant={'exercicio'}>Exercício</S.TitleContent>

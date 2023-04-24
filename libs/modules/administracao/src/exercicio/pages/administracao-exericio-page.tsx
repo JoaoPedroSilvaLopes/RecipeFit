@@ -78,6 +78,7 @@ const AdministracaoExercicioPage: React.FC = () => {
               renderItem={(item) => {
                 return (
                   <FlatCard
+                    key={item.item.id}
                     title={item.item.nome}
                     actions={[
                       <S.IconButton

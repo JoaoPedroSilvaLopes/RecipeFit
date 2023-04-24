@@ -24,7 +24,7 @@ export const PreviewGroup = styled.View`
 `;
 
 export const PreviewContent = styled(Box)<{
-  variant: 'pagina-inicial' | 'alimentacao' | 'exercicio';
+  variant: 'pagina-inicial' | 'receita' | 'exercicio';
 }>`
   padding: 15px;
   justify-content: flex-start;
@@ -48,7 +48,7 @@ export const PreviewContent = styled(Box)<{
 `;
 
 export const TitleContent = styled.Text<{
-  variant: 'pagina-inicial' | 'alimentacao' | 'exercicio';
+  variant: 'pagina-inicial' | 'receita' | 'exercicio';
 }>`
   font-size: 10px;
   color: ${({ variant }) => {
@@ -58,7 +58,7 @@ export const TitleContent = styled.Text<{
           props.theme.colorMode.title === 'dark'
             ? (props) => props.theme.colorPalette.primary
             : (props) => props.theme.colorPalette.secondary;
-      case 'alimentacao':
+      case 'receita':
         return (props) =>
           props.theme.colorMode.title === 'dark'
             ? (props) => props.theme.colorPalette.primary

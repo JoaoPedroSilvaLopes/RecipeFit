@@ -12,10 +12,12 @@ import {
   ExerciciosHomePage,
 } from '@nx-workspace//modules/exercicio';
 import { useCurrentAccount } from '@nx-workspace//shared/core';
-import { AdministracaoExercicioPage } from '@nx-workspace//modules/administracao';
-
+import {
+  AdministracaoExercicioPage,
+  AdministracaoReceitaPage,
+} from '@nx-workspace//modules/administracao';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Button, CustomDrawer } from '@nx-workspace//shared/components';
+import { CustomDrawer } from '@nx-workspace//shared/components';
 
 export const Router: React.FC = () => {
   const Stack = createNativeStackNavigator();
@@ -27,14 +29,19 @@ export const Router: React.FC = () => {
       screenOptions={{ headerShown: false }}
       drawerContent={(props) => <CustomDrawer {...props} />}
     >
-      <Drawer.Screen key="Home" name="Home" component={HomePage} />
-      {/* <Drawer.Screen key="Perfil" name="Meu Perfil" component={PerfilPage} /> */}
+      <Drawer.Screen key="Home" name="Pagina Inicial" component={HomePage} />
+      <Drawer.Screen key="Perfil" name="Meu Perfil" component={PerfilPage} />
       <Drawer.Screen key="Theme" name="Temas" component={ThemePage} />
-      {/* <Drawer.Screen
+      <Drawer.Screen
         key="AdministracaoExercicio"
         name="Administracao Exercícios"
         component={AdministracaoExercicioPage}
-      /> */}
+      />
+      <Drawer.Screen
+        key="AdministracaoReceita"
+        name="Administracao Receitas"
+        component={AdministracaoReceitaPage}
+      />
     </Drawer.Navigator>
   );
 

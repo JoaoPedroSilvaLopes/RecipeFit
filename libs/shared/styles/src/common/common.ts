@@ -2,10 +2,10 @@ export default {
   fontDefault: {
     family: 'Gothic A1',
   },
-  titleFontAlimentacao: {
+  titleFontreceita: {
     family: 'Tenor Sans',
   },
-  fontAlimentacao: {
+  fontreceita: {
     family: 'Dosis',
   },
 };

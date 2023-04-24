@@ -4,7 +4,7 @@ export const Screen = styled.View`
   width: 100%;
   height: 100%;
   padding: 15% 15%;
-  background-Color: ${props => props.theme.colors.background};
+  background-Color: ${props => props.theme.colorMode.colors.background};
   align-Items: center;
   justify-content: space-evenly;
 `;

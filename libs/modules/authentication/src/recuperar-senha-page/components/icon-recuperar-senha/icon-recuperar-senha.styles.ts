@@ -7,8 +7,8 @@ export const Container = styled.View`
   height: 250px;
   border-radius: 150px;
   background-color: ${(props) =>
-    props.theme.title === 'dark'
-      ? props.theme.colors.suportColor
+    props.theme.colorMode.title === 'dark'
+      ? props.theme.colorMode.colors.suportColor
       : props.theme.colorPalette.secondary};
 `;
 
@@ -17,15 +17,15 @@ export const Title = styled.Text`
   font-size: 30px;
   font-weight: bold;
   color: ${(props) =>
-    props.theme.title === 'dark'
+    props.theme.colorMode.title === 'dark'
       ? props.theme.colorPalette.primary
-      : props.theme.colors.textColor};
+      : props.theme.colorMode.colors.textColor};
   width: 100%;
 `;
 
 export const SubTitle = styled.Text`
   text-align: center;
   font-size: 15px;
-  color: ${(props) => props.theme.colors.textColor};
+  color: ${(props) => props.theme.colorMode.colors.textColor};
   width: 100%;
 `;

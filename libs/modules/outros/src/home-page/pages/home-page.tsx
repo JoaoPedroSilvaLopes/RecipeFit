@@ -32,7 +32,6 @@ const HomePage: React.FC = () => {
     ],
   };
 
-
   const navToAlimentoHome = () => {
     navigation.navigate('ExercicioHome');
   };

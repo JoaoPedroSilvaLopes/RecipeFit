@@ -11,8 +11,8 @@ export const Container = styled(Box)`
   border: 20px;
   margin-top: 20px;
   border-color: ${(props) =>
-    props.theme.title === 'dark'
-      ? props.theme.colors.suportColor
+    props.theme.colorMode.title === 'dark'
+      ? props.theme.colorMode.colors.suportColor
       : props.theme.colorPalette.secondary};
 `;
 
@@ -22,12 +22,12 @@ export const ImageBackground = styled(Avatar)`
   width: 180px;
   height: 180px;
   border-radius: 150px;
-  background-color: ${(props) => props.theme.colors.backgroundContent};
+  background-color: ${(props) => props.theme.colorMode.colors.backgroundContent};
 `;
 
 export const IconPerfil = styled(Icon)`
   color: ${(props) =>
-    props.theme.title === 'dark'
-      ? props.theme.colors.backgroundContent
+    props.theme.colorMode.title === 'dark'
+      ? props.theme.colorMode.colors.backgroundContent
       : props.theme.colorPalette.primary};
 `

@@ -30,8 +30,6 @@ const PerfilPage: React.FC = () => {
   const user = useCurrentAccount();
   const { data: usuario } = useLoadById({ id: user?.uid });
 
-  //console.log(usuario)
-
   useEffect(() => {
     form.clearErrors();
     if (isRead && usuario) {

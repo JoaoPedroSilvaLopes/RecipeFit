@@ -1,2 +1,2 @@
-//export * from './alimentacao';
+export * from './receita';
 export * from './exercicio';
