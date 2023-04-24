@@ -14,33 +14,33 @@ export const LabelGroup = styled.View`
 
 export const Label = styled.Text`
   font-size: 13px;
-  color: ${(props) => props.theme.colors.textColor};
+  color: ${(props) => props.theme.colorMode.colors.textColor};
 `;
 
 export const IsRequired = styled.Text`
   font-size: 13px;
-  color: ${(props) => props.theme.colors.danger};
+  color: ${(props) => props.theme.colorMode.colors.danger};
 `;
 
 export const BaseInput = styled(Input)<{ active: boolean; error?: string }>`
   height: 50px;
   border-radius: 5px;
   border-width: 1.5px;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colorMode.colors.background};
   font-size: 15px;
-  color: ${(props) => props.theme.colors.textColor};
+  color: ${(props) => props.theme.colorMode.colors.textColor};
 
   border-color: ${(props) =>
     props.error
-      ? props.theme.colors.danger
+      ? props.theme.colorMode.colors.danger
       : props.active
       ? props.theme.colorPalette.primary
-      : props.theme.colors.textColor};
+      : props.theme.colorMode.colors.textColor};
 `;
 
 export const LabelError = styled.Text`
   margin-top: 5px;
-  color: ${(props) => props.theme.colors.danger};
+  color: ${(props) => props.theme.colorMode.colors.danger};
   font-size: 12px;
   width: 100%;
 `;

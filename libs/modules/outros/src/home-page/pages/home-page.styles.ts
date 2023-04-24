@@ -4,11 +4,7 @@ export const Screen = styled.View`
   width: 100%;
   height: 100%;
   padding: 15%;
-  background-Color: ${props => props.theme.colors.background};
+  background-Color: ${props => props.theme.colorMode.colors.background};
   align-Items: center;
-  gap: 40px;
-`;
-
-export const Teste = styled.View`
-  flex-direction: row;
+  justify-content: space-evenly;
 `;

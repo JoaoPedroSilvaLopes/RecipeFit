@@ -6,6 +6,11 @@ export type HeaderProps = {
   actions?: ReactNode[];
 };
 
-export type formProps<T extends FieldValues> = {
+export type FormProps<T extends FieldValues> = {
   onSubmit: SubmitHandler<T>;
 };
+
+export type FlatCardProps = {
+  title: string;
+  actions?: ReactNode[];
+}

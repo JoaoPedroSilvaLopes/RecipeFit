@@ -16,15 +16,15 @@ export const CircularButton = styled(Button)`
   margin-bottom: 10px;
   gap: -80px;
 
-  background-color: ${(props) => props.theme.colors.backgroundContent};
-  border-color: ${(props) => props.theme.colors.suportColor};
+  background-color: ${(props) => props.theme.colorMode.colors.backgroundContent};
+  border-color: ${(props) => props.theme.colorMode.colors.suportColor};
 `;
 
 export const Label = styled.Text`
   font-size: 25px;
   font-weight: bold;
   color: ${(props) =>
-    props.theme.title === 'dark'
+    props.theme.colorMode.title === 'dark'
       ? props.theme.colorPalette.primary
       : props.theme.colorPalette.secondary};
 `;

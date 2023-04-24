@@ -2,13 +2,13 @@ import { Controller, useFormContext } from 'react-hook-form';
 import {
   Button,
   TextFieldInput,
-  formProps,
+  FormProps,
 } from '@nx-workspace//shared/components';
 import { RecuperarSenhaFormInput } from '@nx-workspace//shared/domain-types';
 
 import * as S from './recuperar-senha-form.styles';
 
-type Props = formProps<RecuperarSenhaFormInput> & {
+type Props = FormProps<RecuperarSenhaFormInput> & {
   isLoading: boolean;
 };
 

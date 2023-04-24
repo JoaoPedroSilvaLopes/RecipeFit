@@ -4,7 +4,7 @@ export const Title = styled.Text`
   text-align: center;
   font-size: 15px;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.textColor};
+  color: ${(props) => props.theme.colorMode.colors.textColor};
   width: 100%;
 `;
 

@@ -5,7 +5,7 @@ declare module 'styled-components' {
     secondary: string;
   }
 
-  export interface DefaultTheme {
+  export interface ColorMode {
     title: string;
     colors: {
       background: string;
@@ -19,12 +19,16 @@ declare module 'styled-components' {
       dangerMessageBackground: string;
       dangerMessage: string;
     };
-    colorPalette: colorPalette;
     fontDefault: {
       family: string;
     };
     fontAlimentacao: {
       family: string;
     };
+  }
+
+  export interface DefaultTheme {
+    colorMode: ColorMode,
+    colorPalette: ColorPalette
   }
 }

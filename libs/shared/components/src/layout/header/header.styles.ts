@@ -9,13 +9,14 @@ export const Container = styled(HStack)`
 
 export const Title = styled.Text`
   color: ${(props) =>
-    props.theme.title === 'dark'
+    props.theme.colorMode.title === 'dark'
       ? props.theme.colorPalette.primary
-      : props.theme.colors.background};
+      : props.theme.colorMode.colors.background};
   font-size: 30px;
   font-weight: bold;
   text-align: center;
   position: absolute;
+  width: 60%;
 `
 
 export const ActionGroup = styled(HStack)`

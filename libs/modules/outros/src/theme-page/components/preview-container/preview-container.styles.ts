@@ -5,7 +5,7 @@ export const Title = styled.Text`
   text-align: center;
   font-size: 15px;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.textColor};
+  color: ${(props) => props.theme.colorMode.colors.textColor};
   width: 100%;
 `;
 
@@ -35,13 +35,13 @@ export const PreviewContent = styled(Box)<{
   background-color: ${({ variant }) => {
     switch (variant) {
       case 'pagina-inicial':
-        return (props) => props.theme.colors.background;
+        return (props) => props.theme.colorMode.colors.background;
       case 'exercicio':
-        return (props) => props.theme.colors.background;
+        return (props) => props.theme.colorMode.colors.background;
       default:
         return (props) =>
-          props.theme.title === 'dark'
-            ? (props) => props.theme.colors.background
+          props.theme.colorMode.title === 'dark'
+            ? (props) => props.theme.colorMode.colors.background
             : (props) => props.theme.colorPalette.primary;
     }
   }};
@@ -55,17 +55,17 @@ export const TitleContent = styled.Text<{
     switch (variant) {
       case 'pagina-inicial':
         return (props) =>
-          props.theme.title === 'dark'
+          props.theme.colorMode.title === 'dark'
             ? (props) => props.theme.colorPalette.primary
             : (props) => props.theme.colorPalette.secondary;
       case 'alimentacao':
         return (props) =>
-          props.theme.title === 'dark'
+          props.theme.colorMode.title === 'dark'
             ? (props) => props.theme.colorPalette.primary
-            : (props) => props.theme.colors.background;
+            : (props) => props.theme.colorMode.colors.background;
       default:
         return (props) =>
-          props.theme.title === 'dark'
+          props.theme.colorMode.title === 'dark'
             ? (props) => props.theme.colorPalette.primary
             : (props) => props.theme.colorPalette.secondary;
     }

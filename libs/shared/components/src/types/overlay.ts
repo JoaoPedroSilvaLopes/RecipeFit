@@ -1,11 +1,14 @@
-import { ComponentType, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { IModalProps } from 'native-base';
 
-export type ModalProps = {
+export type ConfirmModalProps = {
   isOpen?: boolean;
-  icon?: ComponentType;
   title?: string;
   message: string;
-  actions?: ReactNode[];
-  children?: ReactNode;
+  onConfirm: () => void;
+  isLoading?: boolean;
 } & IModalProps;
+
+export type ModalProps = {
+  children?: ReactNode;
+} & Omit<ConfirmModalProps, 'message' | 'onConfirm'>;

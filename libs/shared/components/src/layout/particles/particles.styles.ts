@@ -14,8 +14,8 @@ export const CircleParticle = styled(Animated.View)`
   border-radius: 150px;
 
   background-color: ${(props) =>
-    props.theme.title === 'dark'
-      ? props.theme.colors.backgroundContent
+    props.theme.colorMode.title === 'dark'
+      ? props.theme.colorMode.colors.backgroundContent
       : props.theme.colorPalette.primary};
   z-index: -2000;
 `;

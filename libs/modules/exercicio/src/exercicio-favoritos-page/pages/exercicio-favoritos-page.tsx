@@ -1,20 +1,21 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {
+  FlatCard,
   Header,
   HeaderProps,
   Particles,
   TextButton,
 } from '@nx-workspace//shared/components';
-import { ExercicioFavoritoCard, RemoveExercicioModal } from '../components';
-import { SectionList } from 'react-native';
+import { RemoveExercicioModal } from '../components';
 import { useModal } from '@nx-workspace//shared/core';
 
-import firestore from '@react-native-firebase/firestore';
+import IconActions from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 import * as S from './exercicio-favoritos-page.styles';
-import { useEffect, useState } from 'react';
-import { Receita } from '@nx-workspace//shared/domain-types';
+import { FlatList } from 'react-native';
+
 
 const ExerciciosHomePage: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
@@ -27,67 +28,29 @@ const ExerciciosHomePage: React.FC = () => {
     navigation.goBack();
   };
 
-  const data = [
+  const exerciciosData = [
     {
-      title: 'Cyan',
-      data: [
-        'cyan.100',
-        'cyan.200',
-        'cyan.300',
-        'cyan.400',
-        'cyan.500',
-        'cyan.100',
-        'cyan.200',
-        'cyan.300',
-        'cyan.400',
-        'cyan.500',
-        'cyan.100',
-        'cyan.200',
-        'cyan.300',
-        'cyan.400',
-        'cyan.500',
-        'cyan.100',
-        'cyan.200',
-        'cyan.300',
-        'cyan.400',
-        'cyan.500',
-        'cyan.100',
-        'cyan.200',
-        'cyan.300',
-        'cyan.400',
-        'cyan.500',
-      ],
+      id: 'aaaa',
+      nome: 'aaaa',
+    },
+    {
+      id: 'aaaa',
+      nome: 'aaaa',
+    },
+    {
+      id: 'aaaa',
+      nome: 'aaaa',
+    },
+    {
+      id: 'aaaa',
+      nome: 'aaaa',
     },
   ];
 
-  // const teste = () => {
-  //   firestore()
-  //     .collection('usuario')
-  //     .onSnapshot((querySnapshot) => {
-  //       const data = querySnapshot.docs.map((doc) => {
-  //         return {
-  //           id: doc.id,
-  //           ...doc.data()
-  //         }
-  //       }) as Receita[];
-  //       console.log(data)
-  //     });
-  // };
-
-  // const add = () => {
-  //   firestore().collection('receita').add({
-  //     foto: 'fototeste',
-  //     nome: 'aaa',
-  //     categoria: 'teste',
-  //     ingredientes: ['aaaa\naaaa', 'aaaa'],
-  //     modoDePreparo: ['aaa', 'bbbb']
-  //   })
-  // }
-
-  const [isModalOpen, OpenModal, closeModal] = useModal();
+  const [isModalOpen, openModal, closeModal] = useModal();
 
   const handleModal = () => {
-    OpenModal();
+    openModal();
   };
 
   return (
@@ -96,7 +59,45 @@ const ExerciciosHomePage: React.FC = () => {
         <Particles />
         <Header {...headerConfigs} />
         <S.Container>
-          <SectionList
+          <FlatList
+            keyExtractor={(item) => item.id}
+            data={exerciciosData}
+            contentContainerStyle={{ padding: 20 }}
+            numColumns={1}
+            renderItem={(item) => {
+              return (
+                <FlatCard
+                  title={item.item.nome}
+                  actions={[
+                    <S.HearthIcon
+                      icon={
+                        <IconActions
+                          name="eye"
+                          size={25}
+                          color={'#518ce6'}
+                          onPress={() => console.log}
+                        />
+                      }
+                      shadow={'none'}
+                    />,
+                    <S.HearthIcon
+                      icon={
+                        <IconActions
+                          name="heart-remove"
+                          size={25}
+                          color={'#ff6c6c'}
+                          onPress={() => console.log()}
+                        />
+                      }
+                      shadow={'none'}
+                    />,
+                  ]}
+                />
+              );
+            }}
+          />
+
+          {/* <SectionList
             contentContainerStyle={{ padding: 20 }}
             sections={data}
             keyExtractor={(item, index) => item + index}
@@ -104,6 +105,9 @@ const ExerciciosHomePage: React.FC = () => {
               <ExercicioFavoritoCard title={item} onPress={() => handleModal()} />
             )}
           />
+          <FlatCard
+
+            /> */}
         </S.Container>
         <TextButton title="Retornar" onPress={() => returnPage()} />
       </S.Screen>

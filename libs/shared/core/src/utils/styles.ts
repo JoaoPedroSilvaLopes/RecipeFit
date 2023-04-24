@@ -1,5 +1,5 @@
-import { Palette, Theme } from '@nx-workspace//shared/domain-types';
-import { ColorPalette } from 'styled-components';
+import { Palette, Mode } from '@nx-workspace//shared/domain-types';
+import { ColorMode, ColorPalette } from 'styled-components';
 import { DefaultTheme } from 'styled-components/native';
 import {
   bluePalette,
@@ -9,7 +9,11 @@ import {
   themeLight,
 } from '@nx-workspace//shared/styles';
 
-export const getTheme = (mode: Theme): DefaultTheme => {
+export const getTheme = (mode: Mode, palette: Palette): DefaultTheme => {
+  return { colorMode: getMode(mode), colorPalette: getPalette(palette) };
+};
+
+export const getMode = (mode: Mode): ColorMode => {
   switch (mode) {
     case 'dark':
       return themeDark;
@@ -40,7 +44,7 @@ export const getPaletteColors = (palette: Palette): string[] => {
   }
 };
 
-export const getThemeColors = (theme: Theme): string[] => {
+export const getModeColors = (theme: Mode): string[] => {
   switch (theme) {
     case 'dark':
       return [themeDark.colors.backgroundContent, themeDark.colors.background];

@@ -1,3 +1,4 @@
+import { IconButton } from 'native-base';
 import styled from 'styled-components/native';
 
 export const Screen = styled.View`
@@ -14,3 +15,10 @@ export const Container = styled.View`
   width: 100%;
   height: 80%;
 `;
+
+export const HearthIcon = styled(IconButton)`
+  width: auto;
+  height: auto;
+  background-color: transparent;
+`;
+

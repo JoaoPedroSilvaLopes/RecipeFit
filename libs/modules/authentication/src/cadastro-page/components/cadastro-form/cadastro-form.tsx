@@ -5,12 +5,12 @@ import { CadastroFormInput } from '@nx-workspace//shared/domain-types';
 import {
   TextButton,
   TextFieldInput,
-  formProps,
+  FormProps,
 } from '@nx-workspace//shared/components';
 
 import * as S from './cadastro-form.styles';
 
-type Props = formProps<CadastroFormInput> & {
+type Props = FormProps<CadastroFormInput> & {
   isLoading: boolean;
 };
 

@@ -23,21 +23,12 @@ export const ModalBody = styled(Modal.Body)`
   font-size: 50px;
   background-color: ${(props) => props.theme.colors.background};
   text-align: justify;
-`;
-
-export const ModalFooter = styled(Modal.Footer)`
-  background-color: ${(props) => props.theme.colors.background};
-  justify-content: flex-end;
+  justify-content: center;
+  gap: 10px
 `;
 
 export const Title = styled.Text`
   font-weight: bold;
   font-size: 20px;
-  color: ${(props) => props.theme.colors.textColor};
-`;
-
-export const TextContent = styled.Text`
-  font-weight: normal;
-  font-size: 15px;
   color: ${(props) => props.theme.colors.textColor};
 `;

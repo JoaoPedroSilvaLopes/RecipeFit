@@ -9,10 +9,16 @@ import {
 import { ExercicioCategoria } from '@nx-workspace//shared/domain-types';
 
 import * as S from './exercicio-categoria-page.styles';
+import { FlatList } from 'react-native';
+import { useLoadByCategoria } from '../../hooks';
 
 const ExerciciosCategoriaPage: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
-  const params = useRoute().params as ExercicioCategoria
+  const params = useRoute().params as ExercicioCategoria;
+
+  const { data: exercicios, isLoading } = useLoadByCategoria({ id: params.id });
+
+  console.log(exercicios)
 
   const headerConfigs: HeaderProps = {
     title: `Exercícios ${params.nomeCategoria}`,
@@ -27,19 +33,19 @@ const ExerciciosCategoriaPage: React.FC = () => {
       <Particles />
       <Header {...headerConfigs} />
       <S.Container>
-        {/* <FlatList
+        <FlatList
           keyExtractor={(item) => item.id}
-          data={categoriasExercicios}
+          data={exercicios}
           numColumns={2}
           renderItem={(item) => {
             return (
               <S.CircularButton
-                title={item.item.nomeCategoria}
+                title={item.item.nome}
                 onPress={() => console.log('')}
               />
             );
           }}
-        /> */}
+        />
       </S.Container>
       <TextButton title="Retornar" onPress={() => returnPage()} />
     </S.Screen>

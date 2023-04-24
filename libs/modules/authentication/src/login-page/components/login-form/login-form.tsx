@@ -2,13 +2,13 @@ import { Controller, useFormContext } from 'react-hook-form';
 import {
   Button,
   TextFieldInput,
-  formProps,
+  FormProps,
 } from '@nx-workspace//shared/components';
 import { LoginFormInput } from '@nx-workspace//shared/domain-types';
 
 import * as S from './login-form.styles';
 
-type Props = formProps<LoginFormInput> & {
+type Props = FormProps<LoginFormInput> & {
   isLoading: boolean;
 };
 

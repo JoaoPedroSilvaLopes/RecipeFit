@@ -1,9 +1,10 @@
-import { getPaletteColors, usePalette } from '@nx-workspace//shared/core';
+import { getPaletteColors, useTheme } from '@nx-workspace//shared/core';
 import { GradientCircleButton } from '@nx-workspace//shared/components';
+
 import * as S from './palette-container.styles';
 
 const PaletteContainer: React.FC = () => {
-  const { palette, togglePalette } = usePalette();
+  const { palette, togglePalette } = useTheme();
 
   return (
     <S.Container>
@@ -11,17 +12,17 @@ const PaletteContainer: React.FC = () => {
       <S.CircleButtonGroup>
         <GradientCircleButton
           colors={getPaletteColors('blue')}
-          onPress={() => togglePalette()}
+          onPress={() => togglePalette('blue')}
           disabled={palette === 'blue' ? true : false}
         />
         <GradientCircleButton
           colors={getPaletteColors('orange')}
-          onPress={() => togglePalette()}
+          onPress={() => togglePalette('orange')}
           disabled={palette === 'orange' ? true : false}
         />
         <GradientCircleButton
           colors={getPaletteColors('green')}
-          onPress={() => togglePalette()}
+          onPress={() => togglePalette('green')}
           disabled={palette === 'green' ? true : false}
         />
       </S.CircleButtonGroup>

@@ -1,1 +1,4 @@
-export * as ExerciciosCategoriasService from './exercicio-service/exercicio-categoria';
+export * as ExerciciosService from './exercicio-service';
+export * as ExerciciosCategoriasService from './exercicio-categoria-service';
+export * as FotoService from './foto-service';
+export * as UsuarioService from './usuario';

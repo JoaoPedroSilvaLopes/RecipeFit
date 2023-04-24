@@ -1,8 +1,14 @@
 import { ModalProps } from '../../types';
-import { TextButton } from '../../general';
 import * as S from './modal.styles';
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, message, ...rest }) => {
+const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  title,
+  children,
+  isLoading,
+  ...rest
+}) => {
   return (
     <S.ModalWrapper isOpen={isOpen} onClose={onClose} {...rest}>
       <S.ModalContent>
@@ -11,9 +17,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, message, ...rest 
           <S.Title>{title}</S.Title>
         </S.ModalHeader>
         <S.ModalBody>
-          <S.TextContent>{message}</S.TextContent>
+          {children}
         </S.ModalBody>
-        <S.ModalFooter><TextButton title="Confirmar" /></S.ModalFooter>
       </S.ModalContent>
     </S.ModalWrapper>
   );

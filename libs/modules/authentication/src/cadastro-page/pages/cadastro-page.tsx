@@ -1,4 +1,5 @@
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigation } from '@react-navigation/native';
@@ -40,7 +41,7 @@ const CadastroPage: React.FC = () => {
     setIsloading(true);
     auth()
       .createUserWithEmailAndPassword(data.email, data.senha)
-      .then(onSuccess)
+      .then(() => onSuccess(data))
       .catch(onError)
       .finally(() => setIsloading(false));
   };
@@ -49,7 +50,13 @@ const CadastroPage: React.FC = () => {
     navigation.goBack();
   };
 
-  const onSuccess = () => {
+  const onSuccess = (data: CadastroFormInput) => {
+    firestore().collection('usuario').doc(auth().currentUser?.uid).set({
+      nome: data.nome,
+      email: data.email,
+      peso: data.peso,
+      altura: data.altura,
+    });
     form.reset();
     clearErrors();
     returnPage();

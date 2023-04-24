@@ -1,2 +1,5 @@
-//export * from './exercicio';
-export * from './exercicio-categoria';
+export * from './load';
+export * from './remove';
+export * from './add';
+export * from './load-by-id';
+export * from './load-by-categoria';

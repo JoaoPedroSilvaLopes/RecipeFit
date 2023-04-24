@@ -1,4 +1,3 @@
-import { IconButton } from '@nx-workspace//shared/components';
 import { Box } from 'native-base';
 import styled from 'styled-components/native';
 
@@ -14,19 +13,19 @@ export const Card = styled(Box)`
   padding: 0px 20px;
 
   background-color: ${(props) =>
-    props.theme.title === 'dark'
-      ? props.theme.colors.backgroundContent
-      : props.theme.colors.background};
+    props.theme.colorMode.title === 'dark'
+      ? props.theme.colorMode.colors.backgroundContent
+      : props.theme.colorMode.colors.background};
 `;
 
 export const Title = styled.Text`
   font-weight: bold;
-  font-size: 20px;
-  color: ${(props) => props.theme.colors.textColor};
+  font-size: 12px;
+  color: ${(props) => props.theme.colorMode.colors.textColor};
 `;
 
-export const HearthIcon = styled(IconButton)`
+export const Actions = styled(Box)`
   width: auto;
   height: auto;
-  background-color: transparent;
+  flex-direction: row;
 `;

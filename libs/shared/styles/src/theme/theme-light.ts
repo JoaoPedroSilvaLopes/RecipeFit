@@ -1,12 +1,9 @@
 
-import { DefaultTheme } from 'styled-components';
+import { ColorMode, DefaultTheme } from 'styled-components';
 import { greenPalette } from '../palette';
 import variables from '../common/common';
 
-// import { usePalette } from '@nx-workspace//shared/core';
-// const { colorPalette } = usePalette()
-
-export const themeLight: DefaultTheme = Object.assign({}, variables, {
+export const themeLight: ColorMode = Object.assign({}, variables, {
   title: 'light',
   colors: {
     background: '#ffffff',
@@ -20,5 +17,4 @@ export const themeLight: DefaultTheme = Object.assign({}, variables, {
     dangerMessageBackground: '#f5c9d1',
     dangerMessage: '#842e3c',
   },
-  colorPalette: greenPalette,
 });

@@ -5,7 +5,7 @@ export const Screen = styled.View`
   width: 100%;
   height: 100%;
   padding: 15%;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colorMode.colors.background};
   flex: 1;
   justify-content: space-evenly;
   align-items: center;
@@ -15,9 +15,9 @@ export const Title = styled.Text`
   font-size: 45px;
   font-weight: bold;
   color: ${(props) =>
-    props.theme.title === 'dark'
+    props.theme.colorMode.title === 'dark'
       ? props.theme.colorPalette.primary
-      : props.theme.colors.background};
+      : props.theme.colorMode.colors.background};
   width: 100%;
 `;
 
@@ -47,15 +47,15 @@ export const FooterButtonGroup = styled.View`
 export const FooterText = styled.Text`
   font-size: 15px;
   color: ${(props) =>
-    props.theme.title === 'dark'
+    props.theme.colorMode.title === 'dark'
       ? props.theme.colorPalette.primary
-      : props.theme.colors.textColor};
+      : props.theme.colorMode.colors.textColor};
 `;
 
 export const FooterTextButton = styled(TextButton)`
   font-weight: bold;
   color: ${(props) =>
-    props.theme.title === 'dark'
+    props.theme.colorMode.title === 'dark'
       ? props.theme.colorPalette.primary
       : props.theme.colorPalette.secondary};
 `;

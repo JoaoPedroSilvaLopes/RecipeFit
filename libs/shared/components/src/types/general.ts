@@ -2,7 +2,6 @@ import {
   IButtonProps,
   IIconButtonProps,
   ITextProps,
-  IInputProps,
 } from 'native-base';
 import { LinearGradientProps } from 'react-native-linear-gradient';
 import { ImageSourcePropType } from 'react-native/types';
@@ -13,7 +12,7 @@ export type ButtonProps = {
 } & IButtonProps;
 
 export type CircularButtonProps = {
-  rightImageUrl?: ImageSourcePropType;
+  rightImageUrl?: string;
   leftImageUrl?: ImageSourcePropType;
   backgroundImageUrl?: ImageSourcePropType;
 } & ButtonProps;

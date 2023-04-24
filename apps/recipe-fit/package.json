@@ -29,6 +29,8 @@
     "react-native-linear-gradient": "*",
     "native-base": "*",
     "@react-native-firebase/firestore": "*",
-    "react-native-fast-image": "*"
+    "react-native-fast-image": "*",
+    "react-native-image-picker": "*",
+    "@react-native-firebase/storage": "*"
   }
 }

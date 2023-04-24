@@ -5,20 +5,20 @@ import {
   Button,
   TextButton,
   TextFieldInput,
-  formProps,
+  FormProps,
 } from '@nx-workspace//shared/components';
-import { PerfilFormInput } from '@nx-workspace//shared/domain-types';
+import { UsuarioFormInput } from '@nx-workspace//shared/domain-types';
 
 import * as S from './perfil-form.styles';
 
-type Props = formProps<PerfilFormInput> & {
+type Props = FormProps<UsuarioFormInput> & {
   isLoading: boolean;
   isRead: boolean;
 };
 
 const PerfilForm: React.FC<Props> = ({ onSubmit, isLoading, isRead }) => {
   const { control, formState, handleSubmit } =
-    useFormContext<PerfilFormInput>();
+    useFormContext<UsuarioFormInput>();
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
   const returnPage = () => {

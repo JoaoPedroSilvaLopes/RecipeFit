@@ -5,9 +5,9 @@ import { Text, Button } from 'native-base';
 export const Label = styled(Text)`
   font-size: 15px;
   color: ${(props) =>
-    props.theme.title === 'dark'
+    props.theme.colorMode.title === 'dark'
       ? props.theme.colorPalette.primary
-      : props.theme.colors.textColor};
+      : props.theme.colorMode.colors.textColor};
 `;
 
 export const TextButton = styled(Button)`
@@ -18,9 +18,9 @@ export const TextButton = styled(Button)`
   border: none;
 
   color: ${(props) =>
-    props.theme.title === 'dark'
+    props.theme.colorMode.title === 'dark'
       ? props.theme.colorPalette.primary
-      : props.theme.colors.textColor};
+      : props.theme.colorMode.colors.textColor};
 `;
 
 export const Spinner = styled(BaseSpinner)`

@@ -1,6 +1,9 @@
-import { Modal, ModalProps } from '@nx-workspace//shared/components';
+import {
+  ConfirmModal,
+  ConfirmModalProps,
+} from '@nx-workspace//shared/components';
 
-type Props = Pick<ModalProps, 'isOpen' | 'onClose'> & {
+type Props = Pick<ConfirmModalProps, 'isOpen' | 'onClose'> & {
   id?: number;
   nome?: string;
 };
@@ -12,21 +15,19 @@ const RemoveExercicioModal: React.FC<Props> = ({
   nome,
 }) => {
   const onConfirm = () => {
-    console.log('Confirmado')
-  }
+    console.log('Confirmado');
+  };
 
-  const modalConfigs: ModalProps = {
+  const confirmModalConfigs: ConfirmModalProps = {
     title: 'Remoção de Exercício',
     message: `Tem certeza de que deseja remover o exercício ${nome} dos seus favoritos?`,
     isOpen,
     onClose,
     //isLoading,
-    //onConfirm
-  }
+    onConfirm
+  };
 
-  return (
-    <Modal {...modalConfigs}/>
-  );
+  return <ConfirmModal {...confirmModalConfigs} />;
 };
 
 export default RemoveExercicioModal;
