@@ -1,11 +1,8 @@
-import {
-  DrawerContentScrollView,
-  DrawerItem as BaseDrawerItem,
-  DrawerItemList as BaseDrawerItemList,
-} from '@react-navigation/drawer';
-import { Box } from 'native-base';
-import styled from 'styled-components/native';
+import { DrawerContentScrollView } from '@react-navigation/drawer';
 import { UsuarioPicture as UsuarioPictureBase } from '../../media';
+import { Box } from 'native-base';
+import { Button } from '../../general';
+import styled from 'styled-components/native';
 
 export const DrawerContentScroll = styled(DrawerContentScrollView)`
   padding: 5%;
@@ -15,19 +12,14 @@ export const DrawerContentScroll = styled(DrawerContentScrollView)`
       : props.theme.colorMode.colors.background};
 `;
 
-export const DrawerItem = styled(BaseDrawerItem)`
-  font-size: 35px;
-`;
-
 export const Container = styled(Box)`
-  gap: 50px;
+  gap: 10px;
   height: 100%;
   width: 100%;
-  justify-content: space-between;
 `;
 
-export const UserContainer = styled(Box)`
-  gap: 10px;
+export const ContainerButtons = styled.ScrollView`
+  height: 400px;
 `;
 
 export const UsuarioPicture = styled(UsuarioPictureBase)`
@@ -46,9 +38,9 @@ export const ContentContainer = styled(Box)`
   font-weight: bold;
   font-size: 25px;
   text-align: center;
-  gap: 10px;
 `;
 
-export const DrawerItemList = styled(BaseDrawerItemList)`
-  font-size: 50px;
-`;
+export const BotaoSair = styled(Button)`
+  width: 100%;
+  background-color: ${props => props.theme.colorMode.colors.danger};
+`
