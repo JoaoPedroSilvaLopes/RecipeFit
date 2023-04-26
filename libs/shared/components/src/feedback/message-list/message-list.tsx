@@ -17,7 +17,7 @@ const MessageList: React.FC<MessageListProps> = ({
             </S.ListText>
             {index === 0 && (
               <S.OnCloseButton
-                icon={<S.IconWrapper variant={variant} name="x" size={10} />}
+                icon={<S.IconWrapper variant={variant} name="x" size={6} />}
                 variant={variant}
                 onPress={onClose}
               />

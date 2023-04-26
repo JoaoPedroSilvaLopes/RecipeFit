@@ -16,13 +16,11 @@ const Drawer: React.FC<Props> = ({ DrawerItems, ...rest }) => {
   const [userData, setUserData] = useState<Usuario>();
   const account = useCurrentAccount();
 
-  const signOut = () => {
-    auth().signOut();
-  };
+  console.log(userData)
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [account]);
 
   const fetchData = async () => {
     account?.uid &&
@@ -38,9 +36,10 @@ const Drawer: React.FC<Props> = ({ DrawerItems, ...rest }) => {
         <S.UsuarioPicture />
         <S.Title>{userData?.nome}</S.Title>
         <S.ContainerButtons>
-          {DrawerItems.map((drawerItem) => {
+          {DrawerItems.map((drawerItem, index) => {
             return (
               <DrawerItem
+                key={index}
                 title={drawerItem.title}
                 icon={drawerItem.icon}
                 route={drawerItem.route}
@@ -48,7 +47,7 @@ const Drawer: React.FC<Props> = ({ DrawerItems, ...rest }) => {
             );
           })}
         </S.ContainerButtons>
-        <S.BotaoSair title="Sair" onPress={() => signOut()} />
+        <S.BotaoSair title="Sair" onPress={() => auth().signOut()} />
       </S.Container>
     </S.DrawerContentScroll>
   );

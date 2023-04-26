@@ -11,8 +11,8 @@ export const MessageContainer = styled.View<{ variant: string }>`
 
   background-color: ${(props) =>
     props.variant === 'positive'
-      ? props.theme.colors.sucessMessageBackground
-      : props.theme.colors.dangerMessageBackground};
+      ? props.theme.colorMode.colors.sucessMessageBackground
+      : props.theme.colorMode.colors.dangerMessageBackground};
 `;
 
 export const ListContainer = styled.View`
@@ -29,8 +29,8 @@ export const ListText = styled.Text<{ variant: string }>`
 
   color: ${(props) =>
     props.variant === 'positive'
-      ? props.theme.colors.sucessMessage
-      : props.theme.colors.dangerMessage};
+      ? props.theme.colorMode.colors.sucessMessage
+      : props.theme.colorMode.colors.dangerMessage};
 `
 
 export const OnCloseButton = styled(IconButton)<{ variant: string }>`
@@ -43,13 +43,13 @@ export const OnCloseButton = styled(IconButton)<{ variant: string }>`
 
   background-color: ${(props) =>
     props.variant === 'positive'
-      ? props.theme.colors.sucessMessageBackground
-      : props.theme.colors.dangerMessageBackground};
+      ? props.theme.colorMode.colors.sucessMessageBackground
+      : props.theme.colorMode.colors.dangerMessageBackground};
 `
 
 export const IconWrapper = styled(Icon)<{ variant: string }>`
   color: ${(props) =>
     props.variant === 'positive'
-      ? props.theme.colors.sucessMessage
-      : props.theme.colors.dangerMessage};
+      ? props.theme.colorMode.colors.sucessMessage
+      : props.theme.colorMode.colors.dangerMessage};
 `

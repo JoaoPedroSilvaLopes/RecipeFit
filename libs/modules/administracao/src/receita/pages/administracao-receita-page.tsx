@@ -9,6 +9,7 @@ import {
   HeaderProps,
   IconButton,
   Particles,
+  Spinner,
   TextButton,
 } from '@nx-workspace//shared/components';
 import {
@@ -68,7 +69,7 @@ const AdministracaoReceitaPage: React.FC = () => {
         <Header {...headerConfigs} />
         <S.Container>
           {isLoading ? (
-            <S.Spinner size={'lg'}/>
+            <Spinner size={'lg'}/>
           ) : (
             <FlatList
               keyExtractor={(item) => item.id}
@@ -84,7 +85,6 @@ const AdministracaoReceitaPage: React.FC = () => {
                       <S.IconButton
                         icon={
                           <IconActions
-                            key="pen"
                             name="pen"
                             size={18}
                             color={'#ffce6c'}
@@ -96,7 +96,6 @@ const AdministracaoReceitaPage: React.FC = () => {
                       <S.IconButton
                         icon={
                           <IconActions
-                            key="trash"
                             name="trash"
                             size={18}
                             color={'#ff6c6c'}

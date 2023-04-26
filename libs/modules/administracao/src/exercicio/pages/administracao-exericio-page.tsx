@@ -9,6 +9,7 @@ import {
   HeaderProps,
   IconButton,
   Particles,
+  Spinner,
   TextButton,
 } from '@nx-workspace//shared/components';
 import {
@@ -68,7 +69,7 @@ const AdministracaoExercicioPage: React.FC = () => {
         <Header {...headerConfigs} />
         <S.Container>
           {isLoading ? (
-            <S.Spinner size={'lg'}/>
+            <Spinner size={'lg'}/>
           ) : (
             <FlatList
               keyExtractor={(item) => item.id}

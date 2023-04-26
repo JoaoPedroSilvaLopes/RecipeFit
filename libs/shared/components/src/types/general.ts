@@ -1,20 +1,20 @@
 import {
   IButtonProps,
   IIconButtonProps,
+  ISpinnerProps,
   ITextProps,
 } from 'native-base';
+import { ReactNode } from 'react';
 import { LinearGradientProps } from 'react-native-linear-gradient';
-import { ImageSourcePropType } from 'react-native/types';
 
 export type ButtonProps = {
   title?: string;
   isLoading?: boolean;
+  children?: ReactNode;
 } & IButtonProps;
 
 export type CircularButtonProps = {
-  rightImageUrl?: string;
-  leftImageUrl?: ImageSourcePropType;
-  backgroundImageUrl?: ImageSourcePropType;
+  backgroundImageUrl?: string;
 } & ButtonProps;
 
 export type GradientButtonProps = Omit<ButtonProps, 'title'> &
@@ -23,3 +23,5 @@ export type GradientButtonProps = Omit<ButtonProps, 'title'> &
 export type IconButtonProps = IIconButtonProps;
 
 export type TextButtonProps = { title: string } & IButtonProps & ITextProps;
+
+export type SpinnerProps = ISpinnerProps;

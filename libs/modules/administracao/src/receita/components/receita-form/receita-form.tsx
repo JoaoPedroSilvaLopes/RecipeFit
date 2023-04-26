@@ -59,6 +59,7 @@ const ReceitaForm: React.FC<Props> = ({ onSubmit, isLoading }) => {
           render={({ field: { value, onChange }, ...rest }) => (
             <TextArea
               label='Ingredientes'
+              placeholder='Insira os ingredientes'
               isRequired
               onChangeText={(val) => onChange(val)}
               defaultValue={value}
@@ -72,6 +73,7 @@ const ReceitaForm: React.FC<Props> = ({ onSubmit, isLoading }) => {
           render={({ field: { value, onChange }, ...rest }) => (
             <TextArea
               label='Modo de Preparo'
+              placeholder='Insira o modo de preparo'
               isRequired
               onChangeText={(val) => onChange(val)}
               defaultValue={value}

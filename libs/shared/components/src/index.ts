@@ -5,3 +5,4 @@ export * from './types';
 export * from './feedback';
 export * from './media';
 export * from './overlay';
+export * from './template';

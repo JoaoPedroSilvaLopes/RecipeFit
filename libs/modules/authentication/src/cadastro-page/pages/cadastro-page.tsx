@@ -30,7 +30,6 @@ const CadastroPage: React.FC = () => {
     mode: 'onChange',
   });
   const [isLoading, setIsloading] = useState<boolean>(false);
-  const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const { errors, addError, clearErrors } = useErrors();
 
   const headerConfig: HeaderProps = {
@@ -44,12 +43,8 @@ const CadastroPage: React.FC = () => {
       .then(() => onSuccess(data))
       .catch(onError)
       .finally(() => {
-        setIsloading(false)
+        setIsloading(false);
       });
-  };
-
-  const returnPage = () => {
-    navigation.goBack();
   };
 
   const onSuccess = (data: CadastroFormInput) => {
@@ -59,6 +54,7 @@ const CadastroPage: React.FC = () => {
       peso: data.peso,
       altura: data.altura,
     });
+    auth().signOut();
     form.reset();
     clearErrors();
   };

@@ -1,5 +1,4 @@
 import { IconButton as BaseIconButton } from '@nx-workspace//shared/components';
-import { Spinner as BaseSpinner } from 'native-base';
 import styled from 'styled-components/native';
 
 export const Screen = styled.View`
@@ -23,7 +22,3 @@ export const IconButton = styled(BaseIconButton)`
   height: auto;
   background-color: transparent;
 `;
-
-export const Spinner = styled(BaseSpinner)`
-  color: ${(props) => props.theme.colorMode.colors.background};
-`

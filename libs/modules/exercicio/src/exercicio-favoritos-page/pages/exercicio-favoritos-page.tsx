@@ -9,12 +9,10 @@ import {
 } from '@nx-workspace//shared/components';
 import { RemoveExercicioModal } from '../components';
 import { useModal } from '@nx-workspace//shared/core';
-
+import { FlatList } from 'react-native';
 import IconActions from 'react-native-vector-icons/MaterialCommunityIcons';
 
-
 import * as S from './exercicio-favoritos-page.styles';
-import { FlatList } from 'react-native';
 
 
 const ExerciciosHomePage: React.FC = () => {
@@ -30,19 +28,19 @@ const ExerciciosHomePage: React.FC = () => {
 
   const exerciciosData = [
     {
-      id: 'aaaa',
+      id: 'a',
       nome: 'aaaa',
     },
     {
-      id: 'aaaa',
+      id: 'b',
       nome: 'aaaa',
     },
     {
-      id: 'aaaa',
+      id: 'c',
       nome: 'aaaa',
     },
     {
-      id: 'aaaa',
+      id: 'd',
       nome: 'aaaa',
     },
   ];
@@ -67,6 +65,7 @@ const ExerciciosHomePage: React.FC = () => {
             renderItem={(item) => {
               return (
                 <FlatCard
+                  key={item.item.id}
                   title={item.item.nome}
                   actions={[
                     <S.HearthIcon
