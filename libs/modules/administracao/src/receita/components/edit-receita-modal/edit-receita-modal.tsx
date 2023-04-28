@@ -26,13 +26,28 @@ const EditReceitaModal: React.FC<Props> = ({
     mode: 'onChange',
   });
   const [isLoading, setIsloading] = useState<boolean>(false);
+  const { data: receita } = useLoadById({ id });
+
+  console.log(receita)
+
+  useEffect(() => {
+    form.clearErrors();
+    if (receita) {
+      form.setValue('foto', receita.foto);
+      form.setValue('nome', receita?.nome);
+      form.setValue('ingredientes', receita.ingredientes);
+      form.setValue('modoDePreparo', receita.modoDePreparo);
+      form.setValue('categoriaId', receita.categoriaId);
+    }
+  }, [receita]);
 
   const onSubmit: SubmitHandler<ReceitaFormInput> = (data) => {
     setIsloading(true);
-    ReceitasService.update({ id, data })
-      .then(() => setIsloading(false))
-      .catch(() => setIsloading(false))
-      .finally(() => onClose());
+    ReceitasService.update({ id, data });
+    ReceitasService.updateFoto({ id, imageUrl: data.foto })
+      .then()
+      .catch()
+      .finally(() => setIsloading(false));
   };
 
   const onClose = () => {

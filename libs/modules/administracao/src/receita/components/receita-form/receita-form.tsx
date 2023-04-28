@@ -33,8 +33,8 @@ const ReceitaForm: React.FC<Props> = ({ onSubmit, isLoading }) => {
         <Controller
           name="foto"
           control={control}
-          render={({ field }) => (
-            <ImagePicker image={foto} onImageChange={setFoto} {...field} />
+          render={({ field: { value }, ...rest }) => (
+            <ImagePicker image={value} onImageChange={setFoto} {...rest} />
           )}
         />
         <Controller

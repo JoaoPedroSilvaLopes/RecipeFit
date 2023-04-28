@@ -15,7 +15,8 @@ const RemoveReceitaModal: React.FC<Props> = ({ isOpen, onClose, id, nome }) => {
   const onConfirm = () => {
     if (id) {
       setIsloading(true);
-      ReceitasService.remove({ id })
+      ReceitasService.remove({ id });
+      ReceitasService.removeFoto({ id })
         .then(() => setIsloading(false))
         .catch(() => setIsloading(false))
         .finally(() => onClose());

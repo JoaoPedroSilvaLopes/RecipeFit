@@ -6,8 +6,8 @@ import {
 } from '@nx-workspace//shared/domain-types';
 import { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { ExerciciosService } from '@nx-workspace//shared/services';
 import ExercicioForm from '../exercicio-form/exercicio-form';
+import { ExerciciosService } from '@nx-workspace//shared/services';
 
 type Props = Pick<ModalProps, 'isOpen' | 'onClose'>;
 

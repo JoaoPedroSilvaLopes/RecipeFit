@@ -11,10 +11,10 @@ export const useLoadById = ({ id }: Props) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
   const fetchData = async () => {
-    id && (await ReceitasService.loadById({ id: id, setData }));
+    return await ReceitasService.loadById({ id: id, setData });
   };
 
   return { data };

@@ -9,11 +9,10 @@ export const add = async ({ data }: Props) => {
   await firestore()
     .collection('receita')
     .add({
+      foto: data.foto ? data.foto : '',
       nome: data.nome,
       ingredientes: data.ingredientes,
       modoDePreparo: data.modoDePreparo,
-      categoriaId: firestore()
-        .collection('categoriaReceita')
-        .doc(data.categoriaId),
+      categoriaId: data.categoriaId,
     });
 };

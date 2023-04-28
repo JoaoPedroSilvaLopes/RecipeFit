@@ -6,7 +6,7 @@ import {
 } from '@nx-workspace//shared/domain-types';
 import { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { FotoService, ReceitasService } from '@nx-workspace//shared/services';
+import { ReceitasService } from '@nx-workspace//shared/services';
 import ReceitaForm from '../receita-form/receita-form';
 
 type Props = Pick<ModalProps, 'isOpen' | 'onClose'>;
@@ -20,7 +20,7 @@ const AddReceitaModal: React.FC<Props> = ({ isOpen, onClose: onHide }) => {
 
   const onSubmit: SubmitHandler<ReceitaFormInput> = (data) => {
     setIsloading(true)
-    FotoService.add({ imageUri: data.foto, nome: data.nome });
+    ReceitasService.addFoto({ imageUri: data.foto, nome: data.nome });
     ReceitasService.add({ data: data })
       .then(() => setIsloading(false))
       .catch(() => setIsloading(false))
