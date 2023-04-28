@@ -2,8 +2,6 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { CadastroForm } from '../components';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import {
