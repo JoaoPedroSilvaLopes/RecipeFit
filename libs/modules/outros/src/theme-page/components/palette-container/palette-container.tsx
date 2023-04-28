@@ -1,4 +1,4 @@
-import { getPaletteColors, useTheme } from '@nx-workspace//shared/core';
+import { StylesUtils, useTheme } from '@nx-workspace//shared/core';
 import { GradientCircleButton } from '@nx-workspace//shared/components';
 
 import * as S from './palette-container.styles';
@@ -11,17 +11,17 @@ const PaletteContainer: React.FC = () => {
       <S.Title>Escolha a paleta de cores</S.Title>
       <S.CircleButtonGroup>
         <GradientCircleButton
-          colors={getPaletteColors('blue')}
+          colors={StylesUtils.getPaletteColors('blue')}
           onPress={() => togglePalette('blue')}
           disabled={palette === 'blue' ? true : false}
         />
         <GradientCircleButton
-          colors={getPaletteColors('orange')}
+          colors={StylesUtils.getPaletteColors('orange')}
           onPress={() => togglePalette('orange')}
           disabled={palette === 'orange' ? true : false}
         />
         <GradientCircleButton
-          colors={getPaletteColors('green')}
+          colors={StylesUtils.getPaletteColors('green')}
           onPress={() => togglePalette('green')}
           disabled={palette === 'green' ? true : false}
         />

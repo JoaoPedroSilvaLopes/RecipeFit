@@ -1,6 +1,6 @@
 import React, { useState, createContext, ReactNode } from 'react';
 import { ThemeProvider as StyledThemeProvider,  } from 'styled-components/native';
-import { getTheme } from '../utils';
+import { StylesUtils } from '../utils';
 
 type AvailableModes = 'light' | 'dark';
 type AvailablePalette = 'blue' | 'orange' | 'green';
@@ -40,7 +40,7 @@ export const ThemeProvider: React.FC<ThemeContextProps> = ({
   };
 
   const handleDefaultTheme = (mode: AvailableModes) => {
-    return getTheme(mode, palette);
+    return StylesUtils.getTheme(mode, palette);
   };
 
   const togglePalette = (palette: AvailablePalette): void => {
