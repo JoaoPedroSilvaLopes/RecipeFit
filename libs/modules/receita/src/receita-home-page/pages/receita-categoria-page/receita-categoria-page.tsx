@@ -10,16 +10,16 @@ import { ExercicioCategoria } from '@nx-workspace//shared/domain-types';
 import { FlatList } from 'react-native';
 import { useLoadByCategoria } from '../../hooks';
 
-import * as S from './exercicio-categoria-page.styles';
+import * as S from './receita-categoria-page.styles';
 
-const ExerciciosCategoriaPage: React.FC = () => {
+const ReceitaCategoriaPage: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const params = useRoute().params as ExercicioCategoria;
 
   const { data: exercicios } = useLoadByCategoria({ id: params.id });
 
   const headerConfigs: HeaderProps = {
-    title: `Exercícios ${params.nomeCategoria}`,
+    title: `Receitas ${params.nomeCategoria}`,
   };
 
   const returnPage = () => {
@@ -30,7 +30,6 @@ const ExerciciosCategoriaPage: React.FC = () => {
     <S.Screen>
       <Particles />
       <Header {...headerConfigs} />
-      <S.SubTitle>{`Qual exercício de ${params.nomeCategoria} você deseja executar?`}</S.SubTitle>
       <S.Container>
         <FlatList
           keyExtractor={(item) => item.id}
@@ -39,7 +38,6 @@ const ExerciciosCategoriaPage: React.FC = () => {
           renderItem={(item) => {
             return (
               <S.CircularButton
-                backgroundImageUrl={item.item.foto}
                 title={item.item.nome}
                 onPress={() => console.log('')}
               />
@@ -52,4 +50,4 @@ const ExerciciosCategoriaPage: React.FC = () => {
   );
 };
 
-export default ExerciciosCategoriaPage;
+export default ReceitaCategoriaPage;

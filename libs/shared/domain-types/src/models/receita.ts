@@ -19,3 +19,12 @@ export type ReceitaFormInput = {
   modoDePreparo: string;
   categoriaId: string;
 };
+
+export enum CategoriaReceitaFieldNames {
+  Salgados = 'Salgados',
+  Bebidas = 'Bebidas',
+  Doces = 'Doces',
+  Saladas = 'Saladas',
+  LowCarb = 'Low Carb',
+  ComFrutas = 'Com Frutas',
+}

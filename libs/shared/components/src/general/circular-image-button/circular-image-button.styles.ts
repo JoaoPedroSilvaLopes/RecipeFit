@@ -9,9 +9,9 @@ export const Container = styled.View`
 `;
 
 export const CircularButton = styled(Button)`
-  width: 120px;
-  height: 120px;
-  border-width: 5px;
+  width: 110px;
+  height: 110px;
+  border-width: 10px;
   border-radius: 150px;
   justify-content: center;
   align-items: center;
@@ -30,7 +30,7 @@ export const Label = styled.Text`
 `;
 
 export const ImageBackground = styled.Image`
-  width: 115px;
-  height: 115px;
+  width: 100px;
+  height: 100px;
   border-radius: 150px;
 `;

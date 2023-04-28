@@ -8,7 +8,7 @@ type Props = Pick<ConfirmModalProps, 'isOpen' | 'onClose'> & {
   nome?: string;
 };
 
-const RemoveExercicioModal: React.FC<Props> = ({
+const RemoveReceitaModal: React.FC<Props> = ({
   isOpen,
   onClose,
   id,
@@ -19,8 +19,8 @@ const RemoveExercicioModal: React.FC<Props> = ({
   };
 
   const confirmModalConfigs: ConfirmModalProps = {
-    title: 'Remoção de Exercício',
-    message: `Tem certeza de que deseja remover o exercício ${nome} dos seus favoritos?`,
+    title: 'Remoção de Receita',
+    message: `Tem certeza de que deseja remover a receita ${nome} dos seus favoritos?`,
     isOpen,
     onClose,
     //isLoading,
@@ -30,4 +30,4 @@ const RemoveExercicioModal: React.FC<Props> = ({
   return <ConfirmModal {...confirmModalConfigs} />;
 };
 
-export default RemoveExercicioModal;
+export default RemoveReceitaModal;

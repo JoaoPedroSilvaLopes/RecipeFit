@@ -14,7 +14,6 @@ import IconActions from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import * as S from './exercicio-favoritos-page.styles';
 
-
 const ExerciciosHomePage: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
@@ -95,18 +94,6 @@ const ExerciciosHomePage: React.FC = () => {
               );
             }}
           />
-
-          {/* <SectionList
-            contentContainerStyle={{ padding: 20 }}
-            sections={data}
-            keyExtractor={(item, index) => item + index}
-            renderItem={({ item }) => (
-              <ExercicioFavoritoCard title={item} onPress={() => handleModal()} />
-            )}
-          />
-          <FlatCard
-
-            /> */}
         </S.Container>
         <TextButton title="Retornar" onPress={() => returnPage()} />
       </S.Screen>

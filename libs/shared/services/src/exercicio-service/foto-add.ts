@@ -10,7 +10,7 @@ export const addFoto = async ({ imageUri, nome }: Props) => {
     const response = await fetch(imageUri);
     const blob = await response.blob();
 
-    const firebase = storage().ref().child(nome).put(blob);
+    const firebase = storage().ref('/exercicios/').child(`${nome}.png`).put(blob);
 
     try {
       await firebase;

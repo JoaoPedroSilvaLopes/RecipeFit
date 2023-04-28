@@ -4,3 +4,6 @@ export * from './add';
 export * from './load-by-id';
 export * from './load-by-categoria';
 export * from './update';
+export * from './foto-update';
+export * from './foto-add';
+export * from './foto-remove';

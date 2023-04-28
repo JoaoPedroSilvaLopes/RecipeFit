@@ -4,10 +4,11 @@ import {
   ExercicioFormInput,
   exercicioValidationSchema,
 } from '@nx-workspace//shared/domain-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { ExerciciosService } from '@nx-workspace//shared/services';
 import ExercicioForm from '../exercicio-form/exercicio-form';
+import { useLoadById } from '../../hooks';
 
 type Props = Pick<ModalProps, 'isOpen' | 'onClose'> & {
   id?: string;
@@ -25,12 +26,24 @@ const EditExercicioModal: React.FC<Props> = ({
     mode: 'onChange',
   });
   const [isLoading, setIsloading] = useState<boolean>(false);
+  const { data: exercicio } = useLoadById({ id });
+
+  useEffect(() => {
+    form.clearErrors();
+    if (exercicio) {
+      form.setValue('foto', exercicio.foto);
+      form.setValue('nome', exercicio?.nome);
+      form.setValue('categoriaId', exercicio.categoriaId);
+    }
+  }, [exercicio]);
+
   const onSubmit: SubmitHandler<ExercicioFormInput> = (data) => {
     setIsloading(true);
     ExerciciosService.update({ id, data })
-      .then(() => setIsloading(false))
-      .catch(() => setIsloading(false))
-      .finally(() => onClose());
+    ExerciciosService.updateFoto({ id, imageUrl: data.foto })
+      .then()
+      .catch()
+      .finally(() => setIsloading(false));
   };
 
   const onClose = () => {

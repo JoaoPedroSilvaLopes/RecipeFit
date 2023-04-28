@@ -27,7 +27,7 @@ const HomePage: React.FC = () => {
   };
 
   const navToAlimentoHome = () => {
-    navigation.navigate('ExerciciosScreen');
+    navigation.navigate('ReceitasScreen');
   };
 
   const navToExercicioHome = () => {

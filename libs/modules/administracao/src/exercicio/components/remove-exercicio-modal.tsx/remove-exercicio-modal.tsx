@@ -20,7 +20,8 @@ const RemoveExercicioModal: React.FC<Props> = ({
   const onConfirm = () => {
     if (id) {
       setIsloading(true);
-      ExerciciosService.remove({ id })
+      ExerciciosService.remove({ id });
+      ExerciciosService.removeFoto({ id })
         .then(() => setIsloading(false))
         .catch(() => setIsloading(false))
         .finally(() => onClose());

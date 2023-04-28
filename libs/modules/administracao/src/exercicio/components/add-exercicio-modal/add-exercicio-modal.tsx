@@ -6,8 +6,8 @@ import {
 } from '@nx-workspace//shared/domain-types';
 import { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { ExerciciosService } from '@nx-workspace//shared/services';
 import ExercicioForm from '../exercicio-form/exercicio-form';
-import { ExerciciosService, FotoService } from '@nx-workspace//shared/services';
 
 type Props = Pick<ModalProps, 'isOpen' | 'onClose'>;
 
@@ -20,7 +20,7 @@ const AddExercicioModal: React.FC<Props> = ({ isOpen, onClose: onHide }) => {
 
   const onSubmit: SubmitHandler<ExercicioFormInput> = (data) => {
     setIsloading(true);
-    FotoService.add({ imageUri: data.foto, nome: data.nome });
+    ExerciciosService.addFoto({ imageUri: data.foto, nome: data.nome });
     ExerciciosService.add({ data: data })
       .then(() => setIsloading(false))
       .catch(() => setIsloading(false))

@@ -9,9 +9,8 @@ export const add = async ({ data }: Props) => {
   return firestore()
     .collection('exercicio')
     .add({
+      foto: data.foto ? data.foto : '',
       nome: data.nome,
-      categoriaId: firestore()
-        .collection('categoriaExercicio')
-        .doc(data.categoriaId),
+      categoriaId: data.categoriaId,
     });
 };
