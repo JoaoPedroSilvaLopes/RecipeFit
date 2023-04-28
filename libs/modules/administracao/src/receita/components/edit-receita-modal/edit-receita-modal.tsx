@@ -28,7 +28,7 @@ const EditReceitaModal: React.FC<Props> = ({
   const [isLoading, setIsloading] = useState<boolean>(false);
   const { data: receita } = useLoadById({ id });
 
-  console.log(receita)
+  console.log(receita);
 
   useEffect(() => {
     form.clearErrors();
@@ -45,9 +45,9 @@ const EditReceitaModal: React.FC<Props> = ({
     setIsloading(true);
     ReceitasService.update({ id, data });
     ReceitasService.updateFoto({ id, imageUrl: data.foto })
-      .then()
-      .catch()
-      .finally(() => setIsloading(false));
+      .then(() => setIsloading(false))
+      .catch(() => setIsloading(false))
+      .finally(() => onClose());
   };
 
   const onClose = () => {

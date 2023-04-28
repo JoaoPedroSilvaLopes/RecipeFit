@@ -41,9 +41,9 @@ const EditExercicioModal: React.FC<Props> = ({
     setIsloading(true);
     ExerciciosService.update({ id, data })
     ExerciciosService.updateFoto({ id, imageUrl: data.foto })
-      .then()
-      .catch()
-      .finally(() => setIsloading(false));
+      .then(() => setIsloading(false))
+      .catch(() => setIsloading(false))
+      .finally(() => onClose());
   };
 
   const onClose = () => {
