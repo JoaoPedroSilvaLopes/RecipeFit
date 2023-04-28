@@ -10,13 +10,12 @@ type Props = {
 export const loadById = async ({ id, setData }: Props) => {
   return firestore()
     .collection('usuario')
+    .doc(id)
     .onSnapshot((querySnapshot) => {
-      const data = querySnapshot.docs.map((doc) => {
-        return { id: doc.id, ...doc.data() };
-      }) as Usuario[];
-      const filterData = data.filter((value) => {
-        return value.id === id && value;
-      });
-      setData(filterData[0]);
+      const data = {
+        id: querySnapshot.id,
+        ...querySnapshot.data(),
+      } as Usuario;
+      setData(data);
     });
 };

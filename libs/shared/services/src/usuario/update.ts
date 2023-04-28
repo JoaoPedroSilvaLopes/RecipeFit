@@ -1,6 +1,6 @@
 import auth from '@react-native-firebase/auth';
-import { UsuarioFormInput } from '@nx-workspace//shared/domain-types';
 import firestore from '@react-native-firebase/firestore';
+import { UsuarioFormInput } from '@nx-workspace//shared/domain-types';
 
 type Props = {
   id?: string;
@@ -8,8 +8,6 @@ type Props = {
 };
 
 export const update = async ({ id, data }: Props) => {
-  const user = auth().currentUser
-
   const onSuccess = (data: UsuarioFormInput) => {
     firestore().collection('usuario').doc(id).set(
       {
@@ -22,15 +20,10 @@ export const update = async ({ id, data }: Props) => {
     );
   };
 
-  console.log('teste', user)
-
   return auth()
-    .signInWithEmailAndPassword(
-      data.email,
-      'correcthorsebatterystaple'
-    )
-    .then((userCredential) => {
-      userCredential.user.updateEmail(data.email);
-      onSuccess(data)
-    }).catch((e) => console.log(e));
+    .currentUser?.updateEmail(data.email)
+    .then(() => {
+      onSuccess(data);
+    })
+    .catch((e) => console.log(e));
 };
