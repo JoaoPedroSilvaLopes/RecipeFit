@@ -1,5 +1,5 @@
 import { ExercicioCategoria } from '@nx-workspace//shared/domain-types';
-import { ExerciciosCategoriasService } from '@nx-workspace//shared/services';
+import { ExerciciosService } from '@nx-workspace//shared/services';
 import { useEffect, useState } from 'react';
 
 export const useLoadCategoria = () => {
@@ -10,7 +10,7 @@ export const useLoadCategoria = () => {
   }, []);
 
   const fetchData = async () =>
-    await ExerciciosCategoriasService.load({ setData: setCategorias });
+    await ExerciciosService.loadCategoria({ setData: setCategorias });
 
   return categorias;
 };

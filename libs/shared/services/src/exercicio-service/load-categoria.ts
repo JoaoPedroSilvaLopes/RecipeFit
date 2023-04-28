@@ -1,21 +1,21 @@
-import { ReceitaCategoria } from '@nx-workspace//shared/domain-types';
+import { ExercicioCategoria } from '@nx-workspace//shared/domain-types';
 import firestore from '@react-native-firebase/firestore';
 
 type Props = {
   setData: React.Dispatch<
-    React.SetStateAction<ReceitaCategoria[] | undefined>
+    React.SetStateAction<ExercicioCategoria[] | undefined>
   >;
 };
 
-export const load = async ({ setData }: Props) =>
+export const loadCategoria = async ({ setData }: Props) =>
   firestore()
-    .collection('categoriaReceita')
+    .collection('categoriaExercicio')
     .onSnapshot((querySnapshot) => {
       const data = querySnapshot.docs.map((doc) => {
         return {
           id: doc.id,
           ...doc.data(),
         };
-      }) as ReceitaCategoria[];
+      }) as ExercicioCategoria[];
       setData(data);
     });
