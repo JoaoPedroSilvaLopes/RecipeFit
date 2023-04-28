@@ -1,6 +1,5 @@
-import auth from '@react-native-firebase/auth';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
-import { ImageUtils, useCurrentAccount } from '@nx-workspace//shared/core';
+import { useCurrentAccount } from '@nx-workspace//shared/core';
 import { UsuarioService } from '@nx-workspace//shared/services';
 import { useEffect, useState } from 'react';
 import { Usuario } from '@nx-workspace//shared/domain-types';
@@ -53,7 +52,7 @@ const Drawer: React.FC<Props> = ({ DrawerItems, ...rest }) => {
             );
           })}
         </S.ContainerButtons>
-        <S.BotaoSair title="Sair" onPress={() => auth().signOut()} />
+        <S.BotaoSair title="Sair" onPress={() => UsuarioService.signOut()} />
       </S.Container>
     </S.DrawerContentScroll>
   );

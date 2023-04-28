@@ -1,4 +1,3 @@
-import auth from '@react-native-firebase/auth';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigation } from '@react-navigation/native';
@@ -19,6 +18,7 @@ import {
   TextButton,
 } from '@nx-workspace//shared/components';
 import LoginForm from '../components/login-form/login-form';
+import { UsuarioService } from '@nx-workspace//shared/services';
 
 import * as S from './login-page.styles';
 
@@ -33,8 +33,7 @@ const LoginPage: React.FC = () => {
 
   const onSubmit: SubmitHandler<LoginFormInput> = (data) => {
     setIsloading(true);
-    auth()
-      .signInWithEmailAndPassword(data.email, data.senha)
+    UsuarioService.signIn({ email: data.email, senha: data.senha })
       .then(onSuccess)
       .catch(onError);
   };

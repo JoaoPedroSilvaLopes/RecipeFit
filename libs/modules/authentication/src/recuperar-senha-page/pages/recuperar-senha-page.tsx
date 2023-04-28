@@ -1,4 +1,3 @@
-import auth from '@react-native-firebase/auth';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigation } from '@react-navigation/native';
@@ -14,9 +13,10 @@ import {
   TextButton,
 } from '@nx-workspace//shared/components';
 import RecuperarSenhaForm from '../components/recuperar-senha-form/recuperar-senha-form';
+import { IconRecuperarSenha } from '../components';
+import { UsuarioService } from '@nx-workspace//shared/services';
 
 import * as S from './recuperar-senha-page.styles';
-import { IconRecuperarSenha } from '../components';
 
 const LoginPage: React.FC = () => {
   const form = useForm<RecuperarSenhaFormInput>({
@@ -29,10 +29,9 @@ const LoginPage: React.FC = () => {
 
   const onSubmit: SubmitHandler<RecuperarSenhaFormInput> = (data) => {
     setIsloading(true);
-    auth()
-      .sendPasswordResetEmail(data.email)
-      .then(onSuccess)
-      .catch(onSuccess)
+    UsuarioService.sendPassword({ email: data.email })
+      .then(() => onSuccess())
+      .catch(() => onSuccess())
       .finally(() => setIsloading(false));
   };
 

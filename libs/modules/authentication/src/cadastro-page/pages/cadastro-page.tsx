@@ -1,5 +1,3 @@
-import auth from '@react-native-firebase/auth';
-import firestore from '@react-native-firebase/firestore';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { CadastroForm } from '../components';
@@ -19,6 +17,7 @@ import {
   MessageList,
   Particles,
 } from '@nx-workspace//shared/components';
+import { UsuarioService } from '@nx-workspace//shared/services';
 
 import * as S from './cadastro-page.styles';
 
@@ -36,27 +35,18 @@ const CadastroPage: React.FC = () => {
 
   const onSubmit: SubmitHandler<CadastroFormInput> = (data) => {
     setIsloading(true);
-    auth()
-      .createUserWithEmailAndPassword(data.email, data.senha)
-      .then(() => onSuccess(data))
-      .catch(onError)
-      .finally(() => {
-        setIsloading(false);
-      });
+    UsuarioService.signUp({ data: data })
+      .then(() => onSuccess())
+      .catch(onError);
   };
 
-  const onSuccess = (data: CadastroFormInput) => {
-    firestore().collection('usuario').doc(auth().currentUser?.uid).set({
-      nome: data.nome,
-      email: data.email,
-      peso: data.peso,
-      altura: data.altura,
-    });
+  const onSuccess = () => {
     form.reset();
     clearErrors();
   };
 
   const onError = (error: AuthError) => {
+    setIsloading(false);
     const errorMessage = AuthErrorHandler.handleError(error);
     errorMessage && addError(errorMessage);
   };
