@@ -1,4 +1,3 @@
-import { Palette, Mode } from '@nx-workspace//shared/domain-types';
 import { ColorMode, ColorPalette } from 'styled-components';
 import { DefaultTheme } from 'styled-components/native';
 import {
@@ -8,6 +7,7 @@ import {
   themeDark,
   themeLight,
 } from '@nx-workspace//shared/styles';
+import { Mode, Palette } from '../types';
 
 export const getTheme = (mode: Mode, palette: Palette): DefaultTheme => {
   return { colorMode: getMode(mode), colorPalette: getPalette(palette) };
