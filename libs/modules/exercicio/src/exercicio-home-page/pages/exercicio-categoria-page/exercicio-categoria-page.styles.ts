@@ -1,4 +1,4 @@
-import { CircularButton as CircularButtonBase } from '@nx-workspace//shared/components'
+import { CircularImageButton as CircularButtonBase } from '@nx-workspace//shared/components'
 import { Box } from 'native-base';
 import styled from 'styled-components/native';
 
@@ -14,7 +14,7 @@ export const Screen = styled.View`
 export const CircularButton = styled(CircularButtonBase)`
   width: 110px;
   height: 110px;
-  border-width: 10px;
+  border-width: 5px;
   margin: 20px;
   gap: 10px;
 `

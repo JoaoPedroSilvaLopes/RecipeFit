@@ -4,9 +4,10 @@ import styled from 'styled-components/native';
 export const Screen = styled.View`
   width: 100%;
   height: 100%;
-  padding: 10%;
+  padding: 20% 10% 10%;
   background-color: ${(props) => props.theme.colorMode.colors.background};
   align-items: center;
+  justify-content: space-between;
   gap: 40px;
 `;
 

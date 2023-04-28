@@ -7,18 +7,16 @@ import {
   TextButton,
 } from '@nx-workspace//shared/components';
 import { ExercicioCategoria } from '@nx-workspace//shared/domain-types';
-
-import * as S from './exercicio-categoria-page.styles';
 import { FlatList } from 'react-native';
 import { useLoadByCategoria } from '../../hooks';
+
+import * as S from './exercicio-categoria-page.styles';
 
 const ExerciciosCategoriaPage: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const params = useRoute().params as ExercicioCategoria;
 
-  const { data: exercicios, isLoading } = useLoadByCategoria({ id: params.id });
-
-  console.log(exercicios)
+  const { data: exercicios } = useLoadByCategoria({ id: params.id });
 
   const headerConfigs: HeaderProps = {
     title: `Exercícios ${params.nomeCategoria}`,

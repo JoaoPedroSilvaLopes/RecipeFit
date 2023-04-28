@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {
+  CircularImageButton,
   Header,
   HeaderProps,
   IconButton,
@@ -10,9 +11,13 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { FlatList } from 'native-base';
 import { useLoad } from '../../hooks';
+import {
+  CategoriaExercicioFieldNames,
+  ExercicioCategoria,
+} from '@nx-workspace//shared/domain-types';
+import { getExercicio } from '../../assets';
 
 import * as S from './exericico-home-page.styles';
-import { ExercicioCategoria } from '@nx-workspace//shared/domain-types';
 
 const ExerciciosHomePage: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
@@ -51,7 +56,10 @@ const ExerciciosHomePage: React.FC = () => {
           numColumns={2}
           renderItem={(item) => {
             return (
-              <S.CircularButton
+              <CircularImageButton
+                backgroundImageUrl={getExercicio(
+                  item.item.nomeCategoria as CategoriaExercicioFieldNames
+                )}
                 title={item.item.nomeCategoria}
                 onPress={() => navToCategoria(item.item)}
               />

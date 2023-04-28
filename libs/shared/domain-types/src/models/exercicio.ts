@@ -15,3 +15,12 @@ export type ExercicioFormInput = {
   nome: string;
   categoriaId: string;
 };
+
+export enum CategoriaExercicioFieldNames {
+  Alongamento = 'Alongamento',
+  Abdomen = 'Abdômen',
+  Braco = 'Braço',
+  Costas = 'Costas',
+  Peito = 'Peito',
+  Perna = 'Perna',
+}

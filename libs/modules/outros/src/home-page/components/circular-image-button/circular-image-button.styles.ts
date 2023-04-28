@@ -1,17 +1,16 @@
+import { Button } from '@nx-workspace//shared/components';
 import styled from 'styled-components/native';
-import Button from '../button/button';
 
 export const Container = styled.View`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin: 20px;
 `;
 
 export const CircularButton = styled(Button)`
-  width: 120px;
-  height: 120px;
-  border-width: 5px;
+  width: 200px;
+  height: 200px;
+  border-width: 12px;
   border-radius: 150px;
   justify-content: center;
   align-items: center;
@@ -30,7 +29,27 @@ export const Label = styled.Text`
 `;
 
 export const ImageBackground = styled.Image`
-  width: 115px;
-  height: 115px;
+  width: 188px;
+  height: 188px;
   border-radius: 150px;
+`;
+
+export const ImagesContainer = styled.View`
+  flex-direction: row;
+  gap: 20px;
+  top: 70px;
+  right: -50px;
+  position: absolute;
+`;
+
+export const RightImage = styled.Image`
+  width: 126px;
+  height: 126px;
+  transform: rotate(345deg);
+`;
+
+export const LeftImage = styled.Image`
+  width: 126px;
+  height: 126px;
+  transform: rotate(15deg);
 `;

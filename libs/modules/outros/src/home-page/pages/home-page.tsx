@@ -2,12 +2,12 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { DrawerActions } from '@react-navigation/native';
 import {
-  CircularImageButton,
   Header,
   HeaderProps,
   IconButton,
   Particles,
 } from '@nx-workspace//shared/components';
+import { CircularImageButton } from '../components';
 import { assetsUrl } from '../assets';
 import Icon from 'react-native-vector-icons/FontAwesome';
 

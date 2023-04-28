@@ -8,16 +8,14 @@ type Props = {
 
 export const useLoadById = ({ id }: Props) => {
   const [data, setData] = useState<Usuario>();
-  const [isLoading, setIsloading] = useState<boolean>(false);
 
   useEffect(() => {
     fetchData();
   }, [id]);
 
   const fetchData = async () => {
-    setIsloading(true);
     return await UsuarioService.loadById({ id: id, setData });
   };
 
-  return { data, isLoading };
+  return { data };
 };
