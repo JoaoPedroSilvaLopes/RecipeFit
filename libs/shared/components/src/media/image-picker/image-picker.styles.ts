@@ -1,6 +1,7 @@
-import { Button } from 'native-base'
+
 import Icon from 'react-native-vector-icons/AntDesign';
 import styled from 'styled-components/native';
+import { Button } from '../../general';
 
 export const UploadScreen = styled(Button)`
   width: 280px;

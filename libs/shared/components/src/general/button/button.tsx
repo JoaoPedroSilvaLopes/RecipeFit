@@ -7,6 +7,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   title,
   isLoadingText,
+  children,
   ...rest
 }) => {
   const isDisable = disabled ? true : false;
@@ -21,7 +22,8 @@ const Button: React.FC<ButtonProps> = ({
       shadow={3}
       {...rest}
     >
-      <S.Label>{title}</S.Label>
+      {title && <S.Label>{title}</S.Label>}
+      {children}
     </S.Button>
   );
 };

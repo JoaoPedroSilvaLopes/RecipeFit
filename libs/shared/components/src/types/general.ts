@@ -15,6 +15,8 @@ export type ButtonProps = {
 
 export type CircularButtonProps = {
   backgroundImageUrl?: string;
+  rightImageUrl?: string;
+  leftImageUrl?: string;
 } & ButtonProps;
 
 export type GradientButtonProps = Omit<ButtonProps, 'title'> &

@@ -12,7 +12,8 @@ export const CircularButton = styled(Button)`
   height: 200px;
   border-width: 12px;
   border-radius: 150px;
-
+  justify-content: center;
+  align-items: center;
   background-color: ${(props) =>
     props.theme.colorMode.colors.backgroundContent};
   border-color: ${(props) => props.theme.colorMode.colors.suportColor};
@@ -28,11 +29,27 @@ export const Label = styled.Text`
 `;
 
 export const ImageBackground = styled.Image`
-  width: 100px;
-  height: 100px;
+  width: 188px;
+  height: 188px;
   border-radius: 150px;
+`;
 
-  background-color: ${(props) =>
-    props.theme.colorMode.colors.backgroundContent};
-  border-color: ${(props) => props.theme.colorMode.colors.suportColor};
+export const ImagesContainer = styled.View`
+  flex-direction: row;
+  gap: 20px;
+  top: 70px;
+  right: -50px;
+  position: absolute;
+`;
+
+export const RightImage = styled.Image`
+  width: 126px;
+  height: 126px;
+  transform: rotate(345deg);
+`;
+
+export const LeftImage = styled.Image`
+  width: 126px;
+  height: 126px;
+  transform: rotate(15deg);
 `;

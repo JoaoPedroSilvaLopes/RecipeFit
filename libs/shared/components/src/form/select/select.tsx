@@ -14,8 +14,8 @@ const TextFieldInput: React.FC<SelectProps> = ({
   const [active, setActive] = useState<boolean>(false);
 
   const changeActiveState = () => {
-    setActive(!active)
-  }
+    setActive(!active);
+  };
 
   return (
     <S.Container>
@@ -34,9 +34,12 @@ const TextFieldInput: React.FC<SelectProps> = ({
         shadow={3}
         {...rest}
       >
-        {data && data.map((value) => {
-          return <S.Item label={value.label} value={value.value} />;
-        })}
+        {data &&
+          data.map((value, index) => {
+            return (
+              <S.Item key={index} label={value.label} value={value.value} />
+            );
+          })}
       </S.Select>
       {error && <S.LabelError>{error}</S.LabelError>}
     </S.Container>
