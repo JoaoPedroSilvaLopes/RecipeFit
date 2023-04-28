@@ -14,10 +14,21 @@ export const Screen = styled.View`
   gap: 40px;
 `;
 
+export const Title = styled.Text`
+  font-size: 30px;
+  width: 80%;
+  text-align: center;
+  color: ${(props) =>
+    props.theme.colorMode.title === 'dark'
+      ? props.theme.colorPalette.primary
+      : props.theme.colorPalette.secondary};
+`;
+
 export const ContainerScreen = styled(Box)`
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  padding: 20px;
   background-color: ${(props) =>
     props.theme.colorMode.title === 'dark'
       ? props.theme.colorMode.colors.backgroundContent

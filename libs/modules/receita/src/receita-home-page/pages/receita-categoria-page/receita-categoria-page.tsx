@@ -1,9 +1,9 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {
+  CircularImageButton,
   Header,
   HeaderProps,
-  Particles,
   TextButton,
 } from '@nx-workspace//shared/components';
 import { ExercicioCategoria } from '@nx-workspace//shared/domain-types';
@@ -28,24 +28,27 @@ const ReceitaCategoriaPage: React.FC = () => {
 
   return (
     <S.Screen>
-      <Particles />
-      <Header {...headerConfigs} />
-      <S.Container>
-        <FlatList
-          keyExtractor={(item) => item.id}
-          data={exercicios}
-          numColumns={2}
-          renderItem={(item) => {
-            return (
-              <S.CircularButton
-                title={item.item.nome}
-                onPress={() => console.log('')}
-              />
-            );
-          }}
-        />
-      </S.Container>
-      <TextButton title="Retornar" onPress={() => returnPage()} />
+      <S.ContainerScreen shadow={3}>
+        <S.Title>{`Receitas ${params.nomeCategoria}`}</S.Title>
+        <S.SubTitle>{'Qual receita deseja visualizar?'}</S.SubTitle>
+        <S.Container>
+          <FlatList
+            keyExtractor={(item) => item.id}
+            data={exercicios}
+            numColumns={2}
+            renderItem={(item) => {
+              return (
+                <CircularImageButton
+                  backgroundImageUrl={item.item.foto}
+                  title={item.item.nome}
+                  onPress={() => console.log('')}
+                />
+              );
+            }}
+          />
+        </S.Container>
+        <TextButton title="Retornar" onPress={() => returnPage()} />
+      </S.ContainerScreen>
     </S.Screen>
   );
 };

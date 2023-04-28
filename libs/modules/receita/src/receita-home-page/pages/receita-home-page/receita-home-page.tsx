@@ -23,7 +23,6 @@ const ReceitaHomePage: React.FC = () => {
   const categoriasReceitas = useLoad();
 
   const headerConfigs: HeaderProps = {
-    title: 'Receitas',
     actions: [
       <IconButton
         icon={<Icon name="favorite" size={15} color={'#fff'} />}
@@ -48,6 +47,8 @@ const ReceitaHomePage: React.FC = () => {
     <S.Screen>
       <S.ContainerScreen shadow={3}>
         <Header {...headerConfigs} />
+        <S.Title>Receitas</S.Title>
+        <S.SubTitle>{'O que deseja cozinhar hoje?'}</S.SubTitle>
         <S.Container>
           <FlatList
             keyExtractor={(item) => item.id}

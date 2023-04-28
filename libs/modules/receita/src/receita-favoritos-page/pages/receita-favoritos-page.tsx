@@ -16,10 +16,6 @@ import * as S from './receita-favoritos-page.styles';
 const ReceitaHomePage: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
-  const headerConfigs: HeaderProps = {
-    title: 'Exercícios Favoritos',
-  };
-
   const returnPage = () => {
     navigation.goBack();
   };
@@ -53,7 +49,7 @@ const ReceitaHomePage: React.FC = () => {
     <>
       <S.Screen>
         <S.ContainerScreen>
-          <Header {...headerConfigs} />
+          <S.Title>Receitas Favoritas</S.Title>
           <S.Container>
             <FlatList
               keyExtractor={(item) => item.id}

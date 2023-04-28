@@ -11,8 +11,8 @@ const MessageList: React.FC<MessageListProps> = ({
     <S.MessageContainer variant={variant}>
       {message.map((message, index) => {
         return (
-          <S.ListContainer>
-            <S.ListText variant={variant} key={index}>
+          <S.ListContainer key={index}>
+            <S.ListText variant={variant}>
               {`\u2022 ${message}`}
             </S.ListText>
             {index === 0 && (

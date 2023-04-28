@@ -13,9 +13,30 @@ export const Screen = styled.View`
   justify-content: center;
 `;
 
+export const Title = styled.Text`
+  font-size: 30px;
+  width: 80%;
+  text-align: center;
+  color: ${(props) =>
+    props.theme.colorMode.title === 'dark'
+      ? props.theme.colorPalette.primary
+      : props.theme.colorPalette.secondary};
+`;
+
+export const SubTitle = styled.Text`
+  font-size: 15px;
+  width: 60%;
+  text-align: center;
+  color: ${(props) =>
+    props.theme.colorMode.title === 'dark'
+      ? props.theme.colorPalette.primary
+      : props.theme.colorMode.colors.textColor};
+`;
+
 export const ContainerScreen = styled(Box)`
   width: 100%;
   height: 100%;
+  padding: 10% 10% 10%;
   border-radius: 10px;
   background-color: ${(props) =>
     props.theme.colorMode.title === 'dark'

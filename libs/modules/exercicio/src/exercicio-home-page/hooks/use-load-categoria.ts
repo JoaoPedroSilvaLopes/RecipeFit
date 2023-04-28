@@ -21,7 +21,6 @@ export const useLoadByCategoria = ({ id }: Props) => {
       (await ExerciciosService.loadByCategoria({
         id,
         setData,
-        setIsloading,
       }))
     );
   };
