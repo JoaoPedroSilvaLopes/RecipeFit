@@ -54,7 +54,6 @@ const CadastroPage: React.FC = () => {
       peso: data.peso,
       altura: data.altura,
     });
-    auth().signOut();
     form.reset();
     clearErrors();
   };
