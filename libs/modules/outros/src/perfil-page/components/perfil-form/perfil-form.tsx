@@ -6,8 +6,10 @@ import {
   TextButton,
   TextFieldInput,
   FormProps,
+  UsuarioPicture,
 } from '@nx-workspace//shared/components';
 import { UsuarioFormInput } from '@nx-workspace//shared/domain-types';
+import { useEffect, useState } from 'react';
 
 import * as S from './perfil-form.styles';
 
@@ -17,9 +19,15 @@ type Props = FormProps<UsuarioFormInput> & {
 };
 
 const PerfilForm: React.FC<Props> = ({ onSubmit, isLoading, isRead }) => {
-  const { control, formState, handleSubmit } =
+  const { control, formState, handleSubmit, setValue } =
     useFormContext<UsuarioFormInput>();
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
+
+  const [foto, setFoto] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    setValue('foto', foto);
+  }, [foto]);
 
   const returnPage = () => {
     navigation.goBack();
@@ -28,6 +36,18 @@ const PerfilForm: React.FC<Props> = ({ onSubmit, isLoading, isRead }) => {
   return (
     <>
       <S.TextFieldGroup>
+        <Controller
+          name="foto"
+          control={control}
+          render={({ field: { value }, ...rest }) => (
+            <UsuarioPicture
+              imageUrl={value}
+              onImageUrlChange={setFoto}
+              readOnly={isRead}
+              {...rest}
+            />
+          )}
+        />
         <Controller
           name="nome"
           control={control}

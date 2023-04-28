@@ -12,11 +12,11 @@ export const useLoadById = ({ id }: Props) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [id]);
 
   const fetchData = async () => {
     setIsloading(true);
-    id && (await UsuarioService.loadById({ id: id, setData, setIsloading }));
+    return await UsuarioService.loadById({ id: id, setData });
   };
 
   return { data, isLoading };

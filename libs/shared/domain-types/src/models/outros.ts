@@ -1,5 +1,6 @@
 export type Usuario = {
   id: string;
+  foto?: string;
   nome: string;
   email: string;
   peso: string;
@@ -7,6 +8,7 @@ export type Usuario = {
 };
 
 export type UsuarioFormInput = {
+  foto?: string;
   nome: string;
   email: string;
   peso: string;
