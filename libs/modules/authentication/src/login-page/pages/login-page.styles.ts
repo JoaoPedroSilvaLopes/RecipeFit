@@ -23,7 +23,8 @@ export const Title = styled.Text`
 
 export const Container = styled.View`
   width: 100%;
-  gap: 10px;
+  gap: 20px;
+  align-items: center;
 `;
 
 export const FooterContainer = styled.View`

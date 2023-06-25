@@ -1,64 +1,34 @@
 import { useState } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigation } from '@react-navigation/native';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { LoginFormInput } from '@nx-workspace//shared/domain-types';
+import { AuthError } from '@nx-workspace//shared/core';
 import {
-  LoginFormInput,
-  loginUsuarioValidationSchema,
-} from '@nx-workspace//shared/domain-types';
-import {
-  AuthError,
-  AuthErrorHandler,
-  useErrors,
-} from '@nx-workspace//shared/core';
-import {
+  Button,
   MessageList,
   Particles,
   TextButton,
 } from '@nx-workspace//shared/components';
-import LoginForm from '../components/login-form/login-form';
-import { UsuarioService } from '@nx-workspace//shared/services';
+import { LoginPageFacade } from '../../Classes-Auth';
 
 import * as S from './login-page.styles';
 
 const LoginPage: React.FC = () => {
-  const form = useForm<LoginFormInput>({
-    resolver: yupResolver(loginUsuarioValidationSchema),
-    mode: 'onChange',
-  });
+  const facade = new LoginPageFacade();
+  const form = facade.getForm();
   const [isLoading, setIsloading] = useState<boolean>(false);
-  const navigation = useNavigation<NativeStackNavigationProp<any>>();
-  const { errors, addError, clearErrors } = useErrors();
 
-  const onSubmit: SubmitHandler<LoginFormInput> = (data) => {
+  const onSubmit = (data: LoginFormInput) => {
     setIsloading(true);
-    UsuarioService.signIn({ email: data.email, senha: data.senha })
-      .then(onSuccess)
-      .catch(onError);
+    facade.onSubmit(data, onSuccess, onError);
   };
 
   const onSuccess = () => {
-    clearErrors();
-    form.reset();
+    setIsloading(false);
+    facade.clearErrors();
   };
 
   const onError = (error: AuthError) => {
     setIsloading(false);
-    const errorMessage = AuthErrorHandler.handleError(error);
-    errorMessage && addError(errorMessage);
-  };
-
-  const navToCadastro = () => {
-    navigation.navigate('Cadastro');
-    clearErrors();
-    form.reset();
-  };
-
-  const navToRecuperarSenha = () => {
-    navigation.navigate('RecuperarSenha');
-    clearErrors();
-    form.reset();
+    facade.setErrors(error);
   };
 
   return (
@@ -66,26 +36,30 @@ const LoginPage: React.FC = () => {
       <Particles />
       <S.Title>Login</S.Title>
       <S.Container>
-        <FormProvider {...form}>
-          {errors.length > 0 && (
-            <MessageList
-              variant="danger"
-              message={errors}
-              onClose={clearErrors}
-            />
-          )}
-          <LoginForm onSubmit={onSubmit} isLoading={isLoading} />
-        </FormProvider>
+        {facade.getErrors().length > 0 && (
+          <MessageList
+            variant="danger"
+            message={facade.getErrors()}
+            onClose={() => facade.clearErrors()}
+          />
+        )}
+        {form?.getResult()}
+        <Button
+          title="Entrar"
+          onPress={form?.onSubmit(onSubmit)}
+          disabled={!form?.getForm().formState.isValid}
+          isLoading={isLoading}
+        />
       </S.Container>
       <S.FooterContainer>
         <TextButton
           title="Esqueceu a senha?"
-          onPress={() => navToRecuperarSenha()}
+          onPress={() => facade.navigateTo('Cadastro')}
         />
         <S.FooterButtonGroup>
           <S.FooterText>Não possui conta?</S.FooterText>
           <S.FooterTextButton
-            onPress={() => navToCadastro()}
+            onPress={() => facade.navigateTo('Cadastro')}
             title="Registre-se"
           />
         </S.FooterButtonGroup>
