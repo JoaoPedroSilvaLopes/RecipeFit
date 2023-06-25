@@ -1,5 +1,4 @@
 import { ColorMode } from 'styled-components';
-import { greenPalette } from '../palette';
 import variables from '../common/common';
 
 export const themeDark: ColorMode = Object.assign({}, variables, {

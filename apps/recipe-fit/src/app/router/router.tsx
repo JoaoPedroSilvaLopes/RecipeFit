@@ -19,7 +19,11 @@ import {
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { CustomDrawer } from '@nx-workspace//shared/components';
 import { drawerMenus } from '../configs';
-import { ReceitaCategoriaPage, ReceitaFavoritosPage, ReceitaHomePage } from '@nx-workspace//modules/receita';
+import {
+  ReceitaCategoriaPage,
+  ReceitaFavoritosPage,
+  ReceitaHomePage,
+} from '@nx-workspace//modules/receita';
 
 export const Router: React.FC = () => {
   const Stack = createNativeStackNavigator();
@@ -72,14 +76,8 @@ export const Router: React.FC = () => {
   const ReceitaNavigator = () => (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="ReceitaHome" component={ReceitaHomePage} />
-      <Stack.Screen
-        name="ReceitaCategoria"
-        component={ReceitaCategoriaPage}
-      />
-      <Stack.Screen
-        name="ReceitaFavoritos"
-        component={ReceitaFavoritosPage}
-      />
+      <Stack.Screen name="ReceitaCategoria" component={ReceitaCategoriaPage} />
+      <Stack.Screen name="ReceitaFavoritos" component={ReceitaFavoritosPage} />
     </Stack.Navigator>
   );
 
@@ -93,11 +91,17 @@ export const Router: React.FC = () => {
         {user ? (
           <>
             <Stack.Screen name="HomeScreen" component={DrawerHome} />
-            <Stack.Screen name="ExerciciosScreen" component={ExercicioNavigator} />
+            <Stack.Screen
+              name="ExerciciosScreen"
+              component={ExercicioNavigator}
+            />
             <Stack.Screen name="ReceitasScreen" component={ReceitaNavigator} />
           </>
         ) : (
-          <Stack.Screen name="AutenticationScreen" component={AutenticaçãoNavigator} />
+          <Stack.Screen
+            name="AutenticationScreen"
+            component={AutenticaçãoNavigator}
+          />
         )}
       </Stack.Navigator>
     </NavigationContainer>

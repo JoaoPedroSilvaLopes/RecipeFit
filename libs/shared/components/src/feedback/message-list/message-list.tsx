@@ -12,9 +12,7 @@ const MessageList: React.FC<MessageListProps> = ({
       {message.map((message, index) => {
         return (
           <S.ListContainer key={index}>
-            <S.ListText variant={variant}>
-              {`\u2022 ${message}`}
-            </S.ListText>
+            <S.ListText variant={variant}>{`\u2022 ${message}`}</S.ListText>
             {index === 0 && (
               <S.OnCloseButton
                 icon={<S.IconWrapper variant={variant} name="x" size={6} />}

@@ -28,8 +28,6 @@ const EditReceitaModal: React.FC<Props> = ({
   const [isLoading, setIsloading] = useState<boolean>(false);
   const { data: receita } = useLoadById({ id });
 
-  console.log(receita);
-
   useEffect(() => {
     form.clearErrors();
     if (receita) {

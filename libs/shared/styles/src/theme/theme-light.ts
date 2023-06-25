@@ -1,6 +1,5 @@
 
-import { ColorMode, DefaultTheme } from 'styled-components';
-import { greenPalette } from '../palette';
+import { ColorMode } from 'styled-components';
 import variables from '../common/common';
 
 export const themeLight: ColorMode = Object.assign({}, variables, {

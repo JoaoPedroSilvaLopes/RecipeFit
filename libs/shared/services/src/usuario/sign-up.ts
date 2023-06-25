@@ -3,7 +3,7 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
 type Props = {
-  data: CadastroFormInput
+  data: CadastroFormInput;
 };
 
 export const signUp = async ({ data }: Props) => {
@@ -16,5 +16,7 @@ export const signUp = async ({ data }: Props) => {
     });
   };
 
-  return auth().createUserWithEmailAndPassword(data.email, data.senha).then(() => onSuccess(data));
+  return auth()
+    .createUserWithEmailAndPassword(data.email, data.senha)
+    .then(() => onSuccess(data));
 };
