@@ -11,20 +11,21 @@
 
 ## :desktop_computer: Tecnologias
 
-As tecnologias utilizadas em todos os projetos foram
+As tecnologias utilizadas no projetos foram
 
-### :gear: Arquitetura
 - <a href="https://eslint.org">EsLint</a>
-
-### :keyboard: Desenvolvimento
 - <a href="https://www.typescriptlang.org">TypeScript</a>
 - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a>
 - <a href="https://reactnative.dev">React Native</a>
 - <a href="https://firebase.google.com/?hl=pt-br">Firebase</a>
-
-### :art: Estilização
 - <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a>
 - <a href="https://styled-components.com">Styled Components</a>
+- <a href="https://nativebase.io">Native Base</a>
+- <a href="https://nx.dev/recipes/nx-console">NX Console</a>
 
-### :framed_picture: Design das telas
+## :framed_picture: Design das telas
+
 - <a href="https://www.figma.com/file/OExjAzJZH5koKEnz3MBXDA/RecipeFit?node-id=10-3&t=6X9czyaVdT70ERcS-0" />Figma do Projeto</a>
+
+## Licença
+Projetos feitos por <a href="https://www.linkedin.com/in/joao-pedro-silva-lopes/">João Pedro</a>
